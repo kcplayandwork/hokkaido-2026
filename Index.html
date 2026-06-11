@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)file:///C:/Users/Karen%20Chang/Downloads/hokkaido-trip-final.html -->
+<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北海道家庭自駕 12天 · 2026夏</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;--ink2:#4a4a44;--ink3:#8a8a80;
+  --cream:#faf8f3;--paper:#fff;
+  --sage:#3d6b52;--gold:#b8860b;--coral:#c0533a;--sky:#2d6a8f;--lav:#6b5b8a;
+  --border:#e8e4da;
+}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+/* NAV */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(26,26,24,.92);backdrop-filter:blur(8px);display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.nav-btn{flex-shrink:0;padding:10px 18px;font-size:12px;color:rgba(255,255,255,.6);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s}
+.nav-btn:hover,.nav-btn.active{color:#fff;border-bottom-color:#a8d4b8}
+/* HERO */
+.hero{background:var(--ink);color:#fff;padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(61,107,82,.35),transparent 60%),radial-gradient(ellipse at 75% 30%,rgba(45,106,143,.3),transparent 55%)}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px;position:relative}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,7vw,68px);line-height:1.1;margin-bottom:20px;position:relative}
+.hero h1 span{color:#a8d4b8}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.65);max-width:480px;margin:0 auto 32px;position:relative}
+.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;position:relative}
+.pill{font-size:12px;padding:5px 13px;border-radius:20px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);background:rgba(255,255,255,.08)}
+/* SECTION */
+.sec{max-width:900px;margin:0 auto;padding:48px 20px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+/* ROUTE */
+.route-wrap{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:20px 24px;overflow-x:auto}
+.route-inner{display:flex;align-items:center;min-width:max-content}
+.rnode{text-align:center}
+.rnode-dot{width:10px;height:10px;border-radius:50%;margin:0 auto 4px}
+.rnode-label{font-size:12px;font-weight:500;white-space:nowrap}
+.rnode-sub{font-size:10px;color:var(--ink3);margin-top:2px}
+.rarrow{width:28px;height:2px;background:var(--border);flex-shrink:0;position:relative;top:-8px;margin:0 2px}
+.rarrow::after{content:'▶';position:absolute;right:-6px;top:-6px;font-size:9px;color:var(--ink3)}
+/* TABS */
+.tab-bar{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.tab{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:var(--paper);color:var(--ink3);transition:all .15s}
+.tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+/* DAY CARDS */
+.days-grid{display:flex;flex-direction:column;gap:10px}
+.day-card{background:var(--paper);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.day-head{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
+.day-head:hover{background:var(--cream)}
+.dnum{font-size:11px;font-weight:700;padding:3px 9px;border-radius:14px;flex-shrink:0}
+.ddate{font-size:12px;color:var(--ink3);min-width:66px;flex-shrink:0}
+.dtitle{font-size:14px;font-weight:500;flex:1}
+.darea{font-size:11px;color:var(--ink3);text-align:right}
+.dchev{color:var(--ink3);font-size:11px;transition:transform .2s;flex-shrink:0}
+.dchev.open{transform:rotate(180deg)}
+.dbody{display:none;border-top:1px solid var(--border)}
+.dbody.open{display:block}
+/* TIMELINE */
+.tl{padding:14px 18px;display:flex;flex-direction:column}
+.tr{display:flex;gap:12px}
+.tl-left{display:flex;flex-direction:column;align-items:center;width:14px;flex-shrink:0}
+.tl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.tl-line{width:1px;background:var(--border);flex:1;margin:3px 0;min-height:8px}
+.tr:last-child .tl-line{display:none}
+.ttime{font-size:11px;color:var(--ink3);min-width:38px;flex-shrink:0;padding-top:3px}
+.tcont{flex:1;padding-bottom:12px}
+.tr:last-child .tcont{padding-bottom:0}
+.tname{font-size:13px;font-weight:500}
+.tdesc{font-size:12px;color:var(--ink2);margin-top:2px;line-height:1.55}
+/* TAGS */
+.tag{display:inline-block;font-size:10px;padding:2px 6px;border-radius:6px;margin:2px 2px 0 0;font-weight:500}
+.t-must{background:#fde8e8;color:#a32020}
+.t-fish{background:#e8f3ec;color:#1e6b3a}
+.t-fl{background:#f8eef4;color:#7a3060}
+.t-an{background:#fff4e6;color:#7a4800}
+.t-bk{background:#f0eef8;color:#4a3880}
+.t-warn{background:#fff8e6;color:#7a5500;border:1px solid #f0d080}
+/* HOTEL BLOCK */
+.hotel-blk{margin:0 18px 14px;background:var(--cream);border-radius:10px;padding:11px 14px;border-left:3px solid var(--sage)}
+.hotel-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-bottom:4px}
+.hotel-name{font-size:13px;font-weight:500}
+.hotel-desc{font-size:12px;color:var(--ink2);margin-top:2px}
+/* FOOD BLOCK */
+.food-blk{margin:0 18px 14px;background:#fef9ee;border-radius:10px;padding:11px 14px;border-left:3px solid var(--gold)}
+.food-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.fi{display:flex;gap:8px;font-size:12px;color:var(--ink2);margin-bottom:6px;align-items:flex-start;line-height:1.5}
+.fi:last-child{margin-bottom:0}
+.fi-ico{flex-shrink:0;font-size:15px}
+.fi-info{flex:1}
+.fi-name{font-weight:500;color:var(--ink)}
+.fi-shop{color:var(--ink3);margin-top:1px;font-size:11px}
+.fi-note{color:var(--ink2);margin-top:1px;font-size:11px}
+/* BOOK TABLE */
+.book-wrap{background:var(--paper);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.book-wrap table{width:100%;border-collapse:collapse}
+.book-wrap th{background:var(--ink);color:#fff;font-size:11px;font-weight:500;padding:9px 13px;text-align:left;letter-spacing:.04em}
+.book-wrap td{font-size:12px;padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.book-wrap tr:last-child td{border-bottom:none}
+.book-wrap tr:nth-child(even) td{background:var(--cream)}
+.pr{font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;display:inline-block;white-space:nowrap}
+.pr-now{background:#fde8e8;color:#a32020}
+.pr-week{background:#fff3e0;color:#7a4800}
+.pr-month{background:#e8f3ec;color:#1e6b3a}
+/* FOOD GUIDE TABLE */
+.fg-wrap{background:var(--paper);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.fg-wrap table{width:100%;border-collapse:collapse}
+.fg-wrap th{background:var(--ink);color:#fff;font-size:11px;font-weight:500;padding:9px 13px;text-align:left}
+.fg-wrap td{font-size:12px;padding:9px 13px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.fg-wrap tr:last-child td{border-bottom:none}
+.fg-wrap tr:hover td{background:var(--cream)}
+.fg-area-row td{background:#f5f2eb!important;font-size:11px;font-weight:700;color:var(--ink3);letter-spacing:.08em;padding:6px 13px}
+.st-ok{display:inline-block;font-size:10px;font-weight:500;padding:2px 6px;border-radius:6px;background:#e8f3ec;color:#1e6b3a;white-space:nowrap}
+.st-pl{display:inline-block;font-size:10px;font-weight:500;padding:2px 6px;border-radius:6px;background:#fff4e6;color:#7a4800;white-space:nowrap}
+.st-chk{display:inline-block;font-size:10px;font-weight:500;padding:2px 6px;border-radius:6px;background:#fde8e8;color:#a32020;white-space:nowrap}
+.sh-name{font-weight:500;color:var(--ink)}
+.sh-addr{color:var(--ink3);margin-top:2px;font-size:11px}
+/* TIPS */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.tip-card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:14px}
+.tip-ico{font-size:22px;margin-bottom:7px}
+.tip-ttl{font-size:13px;font-weight:500;margin-bottom:4px}
+.tip-txt{font-size:12px;color:var(--ink2);line-height:1.6}
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.45);text-align:center;padding:28px 20px;font-size:12px}
+footer strong{color:rgba(255,255,255,.75)}
+@media(max-width:600px){
+  .sec{padding:36px 14px}
+  .day-head{padding:12px 14px;gap:9px}
+  .tl{padding:11px 14px}
+  .hotel-blk,.food-blk{margin:0 14px 12px}
+  .book-wrap th,.book-wrap td,.fg-wrap th,.fg-wrap td{padding:8px 10px;font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="nav-btn active" onclick="scrollTo(&#39;hero&#39;)">首頁</div>
+  <div class="nav-btn" onclick="scrollTo(&#39;route&#39;)">路線</div>
+  <div class="nav-btn" onclick="scrollTo(&#39;itinerary&#39;)">行程</div>
+  <div class="nav-btn" onclick="scrollTo(&#39;food&#39;)">美食店家</div>
+  <div class="nav-btn" onclick="scrollTo(&#39;booking&#39;)">預約清單</div>
+  <div class="nav-btn" onclick="scrollTo(&#39;tips&#39;)">注意事項</div>
+</nav>
+
+<div id="hero" class="hero">
+  <div class="eyebrow">Family Road Trip · Summer 2026</div>
+  <h1>北海道<span>12天</span>家庭自駕</h1>
+  <p class="hero-sub">薰衣草花季 × 知床賞鯨 × 棕熊觀察 × 旭山動物園 × 溪流釣魚</p>
+  <div class="pills">
+    <span class="pill">✈️ 7/19 出發（名古屋進）</span>
+    <span class="pill">🚗 旭川取車 → 新千歲還車</span>
+    <span class="pill">♨️ 全程溫泉旅館</span>
+    <span class="pill">🗓 7/31 返台</span>
+  </div>
+</div>
+
+<!-- ROUTE -->
+<div id="route" class="sec">
+  <div class="sec-label">路線總覽</div>
+  <div class="route-wrap">
+    <div class="route-inner">
+      <div class="rnode"><div class="rnode-dot" style="background:#555"></div><div class="rnode-label">名古屋</div><div class="rnode-sub">✈️入境</div></div>
+      <div class="rarrow"></div>
+      <div class="rnode"><div class="rnode-dot" style="background:var(--coral)"></div><div class="rnode-label">旭川</div><div class="rnode-sub">2晚</div></div>
+      <div class="rarrow"></div>
+      <div class="rnode"><div class="rnode-dot" style="background:var(--lav)"></div><div class="rnode-label">美瑛·富良野</div><div class="rnode-sub">2晚</div></div>
+      <div class="rarrow"></div>
+      <div class="rnode"><div class="rnode-dot" style="background:var(--sage)"></div><div class="rnode-label">層雲峽</div><div class="rnode-sub">1晚</div></div>
+      <div class="rarrow"></div>
+      <div class="rnode"><div class="rnode-dot" style="background:#777"></div><div class="rnode-label">網走</div><div class="rnode-sub">1晚</div></div>
+      <div class="rarrow"></div>
+      <div class="rnode"><div class="rnode-dot" style="background:var(--coral)"></div><div class="rnode-label">知床</div><div class="rnode-sub">3晚</div></div>
+      <div class="rarrow"></div>
+      <div class="rnode"><div class="rnode-dot" style="background:var(--lav)"></div><div class="rnode-label">養老牛</div><div class="rnode-sub">途中</div></div>
+      <div class="rarrow"></div>
+      <div class="rnode"><div class="rnode-dot" style="background:var(--sky)"></div><div class="rnode-label">釧路</div><div class="rnode-sub">1晚</div></div>
+      <div class="rarrow"></div>
+      <div class="rnode"><div class="rnode-dot" style="background:var(--gold)"></div><div class="rnode-label">帶廣</div><div class="rnode-sub">1晚</div></div>
+      <div class="rarrow"></div>
+      <div class="rnode"><div class="rnode-dot" style="background:#555"></div><div class="rnode-label">新千歲</div><div class="rnode-sub">✈️離境</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ITINERARY -->
+<div id="itinerary" class="sec" style="padding-top:0">
+  <div class="sec-label">每日行程（點擊展開）</div>
+  <div class="days-grid">
+
+    <!-- D1 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#f0f0ee;color:#555">Day 1</span>
+        <span class="ddate">7/19 週日</span>
+        <span class="dtitle">✈️ 抵達旭川</span>
+        <span class="darea">名古屋 → 旭川</span>
+        <span class="dchev open">▾</span>
+      </div>
+      <div class="dbody open">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sky)"></div><div class="tl-line"></div></div><span class="ttime">上午</span><div class="tcont"><div class="tname">✈️ 台北→名古屋→旭川</div><div class="tdesc">國泰航空+ANA直飛旭川（約1h45m）。落地取車，建議 Toyota Voxy 7人座</div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">傍晚</span><div class="tcont"><div class="tname">🍜 旭川市區晚餐</div><div class="tdesc">三番街商店街，嘗旭川醬油拉麵，早點休息</div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">プレミアホテル CABIN 旭川</div><div class="hotel-desc">旭川駅徒歩3分，天然溫泉大浴場，嬰兒床租借</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🍜</span><div class="fi-info"><div class="fi-name">旭川醬油拉麵</div><div class="fi-shop">蜂屋 本店｜旭川市2条8丁目｜0166-22-3343｜11時開始，常排隊</div><div class="fi-note">備選：梅光軒（旭川站 AEON MALL 2F，最方便）</div></div></div>
+          <div class="fi"><span class="fi-ico">🐔</span><div class="fi-info"><div class="fi-name">新子焼き（旭川限定炭烤半雞）</div><div class="fi-shop">とり千｜旭川市3条8丁目周邊</div><div class="fi-note">旭川獨有名物，外皮焦脆，約¥1,100，居酒屋晚餐</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D2 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#fff4e6;color:#7a4800">Day 2</span>
+        <span class="ddate">7/20 週一</span>
+        <span class="dtitle">🐻‍❄️ 旭山動物園 全日</span>
+        <span class="darea">旭川</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--coral)"></div><div class="tl-line"></div></div><span class="ttime">09:00</span><div class="tcont"><div class="tname">🐻‍❄️ 旭山動物園（5-6小時）</div><div class="tdesc">北極熊游泳隧道、猩猩空中步道、企鵝館。平日人少拍照更輕鬆！<span class="tag t-an">親子必訪</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">16:00</span><div class="tcont"><div class="tname">🛍 旭川三番街</div><div class="tdesc">購物、晚餐，享受旭川夜晚</div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">プレミアホテル CABIN 旭川（連住）</div><div class="hotel-desc">泡天然溫泉消除動物園走路疲勞</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🍜</span><div class="fi-info"><div class="fi-name">旭川拉麵（第二家）</div><div class="fi-shop">山頭火｜旭川市1条8丁目｜網路可預訂</div></div></div>
+          <div class="fi"><span class="fi-ico">🥩</span><div class="fi-info"><div class="fi-name">ジンギスカン</div><div class="fi-shop">大黒屋｜旭川市内，動物園附近多家供應</div><div class="fi-note">北海道烤羊肉，不腥，小孩也愛</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D3 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#f8eef4;color:#7a3060">Day 3</span>
+        <span class="ddate">7/21 週二</span>
+        <span class="dtitle">🌾 美瑛花田 → 入住富良野</span>
+        <span class="darea">旭川→美瑛→富良野（約1.5h）</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--lav)"></div><div class="tl-line"></div></div><span class="ttime">08:30</span><div class="tcont"><div class="tname">🌾 美瑛「拼布之路」慢遊</div><div class="tdesc">起伏麥田與薰衣草丘陵，沿路停車拍照<span class="tag t-fl">花卉景觀</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sky)"></div><div class="tl-line"></div></div><span class="ttime">10:30</span><div class="tcont"><div class="tname">💙 白金青池＋白鬚瀑布</div><div class="tdesc">夢幻藍色湖水，倒映白樺樹</div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--lav)"></div><div class="tl-line"></div></div><span class="ttime">13:30</span><div class="tcont"><div class="tname">💜 富田農場（Farm Tomita）</div><div class="tdesc">7/19-25 薰衣草全盛期！薰衣草軟冰淇淋必吃<span class="tag t-fl">薰衣草高峰</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">17:00</span><div class="tcont"><div class="tname">🌄 日之出公園 俯瞰富良野盆地</div><div class="tdesc">傍晚光線最美，薰衣草丘陵全景</div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">ラベンダーの丘（中富良野）/ 新富良野プリンスホテル</div><div class="hotel-desc">緊鄰富田農場，天然溫泉15種浴池，全室十勝岳連峰景觀</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🍜</span><div class="fi-info"><div class="fi-name">美瑛カレーうどん</div><div class="fi-shop">道の駅びえい「丘のくら」香麦食堂｜美瑛町本町1-9-21｜0166-92-0920</div><div class="fi-note">備選：駅の見えるレストラン KOERU（JR美瑛駅旁，同時供應美瑛豬排）</div></div></div>
+          <div class="fi"><span class="fi-ico">🍦</span><div class="fi-info"><div class="fi-name">ラベンダーソフトクリーム</div><div class="fi-shop">ファーム富田（Farm Tomita）現場｜中富良野町基線北15号｜0167-39-3939</div><div class="fi-note">早上9時開場，下午大排長龍，必買！</div></div></div>
+          <div class="fi"><span class="fi-ico">🍛</span><div class="fi-info"><div class="fi-name">富良野オムカレー</div><div class="fi-shop">唯我独尊｜富良野市日の出町11-8｜0167-23-4784</div><div class="fi-note">備選：山香食堂（富良野市緑町9-20，¥800，在地人愛店）</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D4 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#f8eef4;color:#7a3060">Day 4</span>
+        <span class="ddate">7/22 週三</span>
+        <span class="dtitle">🎣 富良野 溪流釣魚體驗</span>
+        <span class="darea">富良野（連住）</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--lav)"></div><div class="tl-line"></div></div><span class="ttime">09:00</span><div class="tcont"><div class="tname">💜 彩香之里早晨散步</div><div class="tdesc">早上光線柔和、人少，免費入場<span class="tag t-fl">薰衣草</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sage)"></div><div class="tl-line"></div></div><span class="ttime">11:00</span><div class="tcont"><div class="tname">🎣 富良野溪流釣魚（約2.5h）</div><div class="tdesc">VELTRA「富良野釣魚ツアー」，3歲以上，釣虹鱒現場鹽烤！全套釣具提供，富良野站接送<span class="tag t-fish">溪流釣魚</span><span class="tag t-an">親子推薦</span><span class="tag t-warn">⚠️需提前預約</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">15:30</span><div class="tcont"><div class="tname">🧀 富良野チーズ工房 + ふらのワイン工場</div><div class="tdesc">起司製作體驗，孩子超喜歡；大人可試飲葡萄酒</div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">富良野（連住第二晚）</div><div class="hotel-desc">釣魚後泡溫泉，最完美組合</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🐟</span><div class="fi-info"><div class="fi-name">自己釣的虹鱒現烤</div><div class="fi-shop">溪流釣魚體驗行程現場（VELTRA，veltra.com）</div><div class="fi-note">當場鹽烤試吃，全行程最難忘體驗之一</div></div></div>
+          <div class="fi"><span class="fi-ico">🥩</span><div class="fi-info"><div class="fi-name">上富良野の豚さがり</div><div class="fi-shop">ジンギスカン アルパカ｜上富良野町（JR上富良野駅附近）</div><div class="fi-note">一頭豬僅500g的稀少橫膈膜，嚼勁十足</div></div></div>
+          <div class="fi"><span class="fi-ico">🧀</span><div class="fi-info"><div class="fi-name">富良野チーズ工房 起司體驗＋試吃</div><div class="fi-shop">富良野市中五区｜0167-23-1156</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D5 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#e8f0eb;color:#1e6b3a">Day 5</span>
+        <span class="ddate">7/23 週四</span>
+        <span class="dtitle">🏔 層雲峽 大雪山國立公園</span>
+        <span class="darea">富良野→層雲峽（約2h）</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sage)"></div><div class="tl-line"></div></div><span class="ttime">11:30</span><div class="tcont"><div class="tname">🏔 層雲峽溪谷散步</div><div class="tdesc">銀河・流星雙瀑布，柱狀玄武岩峭壁，步道平坦孩子也OK<span class="tag t-bk">大雪山國立公園</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">14:00</span><div class="tcont"><div class="tname">🚡 層雲峽纜車 → 黑岳</div><div class="tdesc">高山植物7月盛開，可眺望大雪山連峰，末班約17:30</div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">層雲峽観光ホテル</div><div class="hotel-desc">三大露天溫泉，兒童餐＆兒童浴衣，峽谷景觀絕佳。夕食自助含飲料免費</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🌿</span><div class="fi-info"><div class="fi-name">大雪山山菜料理＋螃蟹自助</div><div class="fi-shop">層雲峽観光ホテル 夕食自助（住宿含餐，飲料免費）</div><div class="fi-note">蕨菜、山獨活等高山山菜，是層雲峽最有特色的晚餐</div></div></div>
+          <div class="fi"><span class="fi-ico">🍦</span><div class="fi-info"><div class="fi-name">層雲峽溫泉街霜淇淋</div><div class="fi-shop">溫泉街各小店（現場選購）</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D6 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#f0f0ee;color:#555">Day 6</span>
+        <span class="ddate">7/24 週五</span>
+        <span class="dtitle">🌸 小清水花園 → 網走</span>
+        <span class="darea">層雲峽→網走（約2.5h）</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--lav)"></div><div class="tl-line"></div></div><span class="ttime">12:00</span><div class="tcont"><div class="tname">🌸 小清水原生花園</div><div class="tdesc">鄂霍次克海岸野花草原，7月百花盛開，免費入場<span class="tag t-fl">海岸花卉</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">14:30</span><div class="tcont"><div class="tname">🏛 博物館網走監獄（可選）＋ 能取湖散步</div><div class="tdesc">明治監獄改建，孩子覺得新奇，停留約1.5h</div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">網走湖荘</div><div class="hotel-desc">網走湖畔溫泉旅館，湖景露天風呂，和室家庭房，晚餐螃蟹料理</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🦀</span><div class="fi-info"><div class="fi-name">毛蟹・帆立海鮮定食</div><div class="fi-shop">網走漁師町観光市場｜網走市新港町1-1-1</div><div class="fi-note">市場內多家食堂，現點現做</div></div></div>
+          <div class="fi"><span class="fi-ico">🍺</span><div class="fi-info"><div class="fi-name">流冰ドラフト（藍色啤酒）＋流冰霜淇淋</div><div class="fi-shop">道の駅「流氷街道網走」｜網走市南3条東4丁目</div><div class="fi-note">流冰水釀造神秘藍色啤酒，也有無酒精版給孩子</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D7 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#fde8e8;color:#a32020">Day 7</span>
+        <span class="ddate">7/25 週六</span>
+        <span class="dtitle">🐋 知床賞鯨船（全程重頭戲！）</span>
+        <span class="darea">網走→宇登呂→羅臼</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sky)"></div><div class="tl-line"></div></div><span class="ttime">08:00</span><div class="tcont"><div class="tname">🚗 往宇登呂→翻越知床峠→羅臼</div><div class="tdesc">先至 KIKI 放行李，再開車翻知床峠（約40分）前往羅臼</div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--coral)"></div><div class="tl-line"></div></div><span class="ttime">10:00</span><div class="tcont"><div class="tname">🐋 羅臼賞鯨船（約2.5h）</div><div class="tdesc">観光船はまなす（rausu-cruise.com）或 アルランⅢ世。7月下旬虎鯨＋抹香鯨可見！<span class="tag t-must">必體驗</span><span class="tag t-warn">⚠️提前預約</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sage)"></div></div><span class="ttime">14:00</span><div class="tcont"><div class="tname">🌲 知床五湖 高架木道</div><div class="tdesc">無需預約，往返約1h，可見蝦夷鹿，嬰兒車也OK<span class="tag t-bk">世界自然遺產</span></div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿（3晚連住）</div><div class="hotel-name">KIKI知床ナチュラルリゾート</div><div class="hotel-desc">親子No.1旅館！嬰兒備品完整，ボーネルンドキッズスペース，250吋電影，源泉溫泉 Relux 4.7分</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🍱</span><div class="fi-info"><div class="fi-name">知床漬け丼（鮭魚ルイベ＋鮭魚卵＋茶泡飯）</div><div class="fi-shop">圓子水産（まるこすいさん）｜斜里町ウトロ東462｜0152-24-2260</div><div class="fi-note">賞鯨回來後完美早午餐，10時開，常排隊</div></div></div>
+          <div class="fi"><span class="fi-ico">🐟</span><div class="fi-info"><div class="fi-name">羅臼ホッケ（超大花鮋現烤）</div><div class="fi-shop">道の駅「知床・らうす」食堂｜目梨郡羅臼町本町361-1</div><div class="fi-note">賞鯨前後順道，現烤現賣，比本州的大兩倍</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D8 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#fde8e8;color:#a32020">Day 8</span>
+        <span class="ddate">7/26 週日</span>
+        <span class="dtitle">🌲 知床五湖中文嚮導 ＋ 棕熊觀察船</span>
+        <span class="darea">知床（宇登呂）</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sage)"></div><div class="tl-line"></div></div><span class="ttime">08:30</span><div class="tcont"><div class="tname">🌲 知床五湖 大環線 中文嚮導（約3h）</div><div class="tdesc">⚠️棕熊活動期（7/31前）必須跟認定嚮導。可見棕熊爪痕、蝦夷鹿<span class="tag t-an">棕熊痕跡</span><span class="tag t-warn">⚠️名額極少，立刻預約</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--coral)"></div></div><span class="ttime">14:00</span><div class="tcont"><div class="tname">🐻 ルシャ灣棕熊觀察船（約2h）</div><div class="tdesc">ゴジラ岩観光（kamuiwakka.jp）或 シンラ套票。海上高機率直擊棕熊覓食<span class="tag t-an">棕熊觀察</span></div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">KIKI知床ナチュラルリゾート（連住）</div><div class="hotel-desc">日替わり晚餐，泡溫泉，看250吋電影</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🐟</span><div class="fi-info"><div class="fi-name">時鮭（トキシラズ）＋ブドウエビ</div><div class="fi-shop">知床食堂（知床羅臼食堂）｜目梨郡羅臼町富士見町｜0153-87-2874</div><div class="fi-note">7月當季！時鮭脂肪極高，葡萄蝦是羅臼特有深海蝦，甜度驚人</div></div></div>
+          <div class="fi"><span class="fi-ico">🧅</span><div class="fi-info"><div class="fi-name">羅臼昆布（伴手禮）</div><div class="fi-shop">道の駅「知床・らうす」（同上）</div><div class="fi-note">日本最高級昆布，真空包裝，最佳伴手禮</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D9 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#fde8e8;color:#a32020">Day 9</span>
+        <span class="ddate">7/27 週一</span>
+        <span class="dtitle">🎣 宇登呂海釣 ＋ 夜間動物巡遊</span>
+        <span class="darea">知床（宇登呂）</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sage)"></div><div class="tl-line"></div></div><span class="ttime">07:00</span><div class="tcont"><div class="tname">🎣 遊漁船「第18喜共丸」鰈魚釣（約3h）</div><div class="tdesc">宇登呂港出發，初學者最適合，¥9,000/人。預約：090-8425-9122<span class="tag t-fish">海釣初級</span><span class="tag t-an">親子</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div><div class="tl-line"></div></div><span class="ttime">12:00</span><div class="tcont"><div class="tname">💨 フレペの滝健行（往返2h）</div><div class="tdesc">知床自然中心出發，懸崖瀑布倒入大海，極震撼</div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">19:00</span><div class="tcont"><div class="tname">🌙 ピッキオ 夜間野生動物巡遊（約2h）</div><div class="tdesc">車內觀察不需下車，燈光找蝦夷鹿・狐狸・棕熊眼睛，遭遇率No.1！<span class="tag t-an">夜間動物</span></div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">KIKI知床ナチュラルリゾート（第3晚）</div><div class="hotel-desc">夜間巡遊回來泡溫泉，完美知床最後一晚</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🐟</span><div class="fi-info"><div class="fi-name">自己釣的鰈魚代烹調</div><div class="fi-shop">KIKI知床旅館（需出發前電話詢問是否接受代烹調）</div><div class="fi-note">若旅館不接受，可帶往宇登呂市區餐廳詢問</div></div></div>
+          <div class="fi"><span class="fi-ico">🦌</span><div class="fi-info"><div class="fi-name">鹿肉チーズバーガー</div><div class="fi-shop">知床自然センター附近攤販｜斜里町ウトロ西186</div><div class="fi-note">攤販不固定，健行途中碰到就買</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D10 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#f2eef8;color:#4a3880">Day 10</span>
+        <span class="ddate">7/28 週二</span>
+        <span class="dtitle">♨️ 養老牛秘湯 → 厚岸牡蠣 → 釧路</span>
+        <span class="darea">知床→養老牛→厚岸→釧路（約3h）</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--lav)"></div><div class="tl-line"></div></div><span class="ttime">11:00</span><div class="tcont"><div class="tname">♨️ 養老牛溫泉（日歸入浴）</div><div class="tdesc">400年歷史秘湯，標津川溪流旁露天風呂，阿伊努人也曾浸泡的神秘溫泉</div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-line"></div></div><span class="ttime">途中</span><div class="tcont"><div class="tname">🦪 道の駅「厚岸グルメパーク」必停！</div><div class="tdesc">R44路旁，不繞路！日本最著名生蠔產地，一年四季皆可生食，現開現吃<span class="tag t-must">途中必停</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">17:30</span><div class="tcont"><div class="tname">🌅 釧路港夕陽（日本最美夕陽）</div><div class="tdesc">漁人碼頭周邊，約晚上7點夕陽最美</div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">釧路プリンスホテル</div><div class="hotel-desc">市中心，釧路川河景，大浴場，翌日方便出發</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🦪</span><div class="fi-info"><div class="fi-name">厚岸生蠔（全日本最著名產地）</div><div class="fi-shop">道の駅「厚岸グルメパーク」｜厚岸郡厚岸町住の江2-2｜0153-52-4139</div><div class="fi-note">R44就在路旁，7月當季，現開現吃！</div></div></div>
+          <div class="fi"><span class="fi-ico">🥛</span><div class="fi-info"><div class="fi-name">標津牛乳</div><div class="fi-shop">標津町沿路牧場直賣所（路旁看到就停）</div><div class="fi-note">牧場直送，新鮮度無可比擬</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D11 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#eef5fa;color:#1a6a99">Day 11</span>
+        <span class="ddate">7/29 週三</span>
+        <span class="dtitle">🦩 釧路濕原 ＋ 丹頂鶴 ＋ 爐端焼き</span>
+        <span class="darea">釧路→帶廣（約1.5h）</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sky)"></div><div class="tl-line"></div></div><span class="ttime">09:00</span><div class="tcont"><div class="tname">🦩 鶴居村丹頂鶴自然公園</div><div class="tdesc">夏季近距離觀賞丹頂鶴育雛，孩子第一次看到真實丹頂鶴都非常興奮<span class="tag t-an">親子驚喜</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sage)"></div><div class="tl-line"></div></div><span class="ttime">11:30</span><div class="tcont"><div class="tname">🛶 釧路濕原木棧道散步</div><div class="tdesc">日本最大濕原，可見丹頂鶴＆蝦夷鹿<span class="tag t-bk">國立公園</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">18:30</span><div class="tcont"><div class="tname">🪵 釧路 爐端焼き 晚餐</div><div class="tdesc">釧路發源！圍坐大爐自己烤新鮮海鮮，是釧路最獨特飲食文化體驗</div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">十勝川温泉 第一ホテル豊洲亭</div><div class="hotel-desc">日本稀有モール溫泉（植物性棕色溫泉），晚餐十勝割烹料理</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🥣</span><div class="fi-info"><div class="fi-name">釧路和商市場の勝手丼（自選海鮮丼）</div><div class="fi-shop">釧路和商市場｜釧路市黒金町13｜JR釧路駅徒歩3分</div><div class="fi-note">早上9時開市，越早越新鮮、越多選擇</div></div></div>
+          <div class="fi"><span class="fi-ico">🪵</span><div class="fi-info"><div class="fi-name">爐端焼き（創始店）</div><div class="fi-shop">炉ばた｜釧路市栄町3-1｜0154-22-6636｜官網：robata.cc</div><div class="fi-note">1960年創始店，7月無休，菜單無標價需口頭問，務必提前電話預約！</div></div></div>
+          <div class="fi"><span class="fi-ico">🪵</span><div class="fi-info"><div class="fi-name">岸壁炉ばた（戶外版，7/29開放中）</div><div class="fi-shop">釧路港岸壁（幣舞橋旁）｜5月中旬～10月底限定</div><div class="fi-note">港口夕陽背景，自選食材自己烤，更有氛圍！可二選一</div></div></div>
+          <div class="fi"><span class="fi-ico">🍜</span><div class="fi-info"><div class="fi-name">釧路ラーメン（可選，午餐）</div><div class="fi-shop">まるひら｜釧路市浦見8-1-13｜0154-41-7233</div><div class="fi-note">食べログ北海道百名店2025。淡口醬油細捲麵，水・木定休</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D12 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#fff4e6;color:#7a4800">Day 12</span>
+        <span class="ddate">7/30 週四</span>
+        <span class="dtitle">🐴 帶廣 ばんえい競馬 ＋ 十勝花園</span>
+        <span class="darea">帶廣</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-line"></div></div><span class="ttime">09:30</span><div class="tcont"><div class="tname">🐴 帶廣競馬場「ばんえい競馬」</div><div class="tdesc">日本唯一輓曳競馬，重型馬拉重型雪橇，孩子超愛！<span class="tag t-an">親子首選</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--lav)"></div><div class="tl-line"></div></div><span class="ttime">13:00</span><div class="tcont"><div class="tname">🌸 六花之森 / 紫竹花園</div><div class="tdesc">200種以上花卉，7月底高峰期<span class="tag t-fl">花卉景觀</span></div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div></div><span class="ttime">16:00</span><div class="tcont"><div class="tname">🛍 帶廣市區採購＋美食</div><div class="tdesc">六花亭本店有限定品！競馬場附近嘗帶廣豚丼</div></div></div>
+        </div>
+        <div class="hotel-blk"><div class="hotel-lbl">♨️ 今晚住宿</div><div class="hotel-name">帯廣エスパシオ / 十勝川温泉（可選連住）</div><div class="hotel-desc">帶廣市區溫泉大浴場，明日開車2h返新千歲</div></div>
+        <div class="food-blk"><div class="food-lbl">🍽 今日美食</div>
+          <div class="fi"><span class="fi-ico">🍖</span><div class="fi-info"><div class="fi-name">帶廣豚丼（元祖）</div><div class="fi-shop">ぱんちょう｜帯広市西1条南11｜0155-22-1974</div><div class="fi-note">1933年創業！11時開，中午前常售完，一定要早去！備選：いっぴん（帯広市西1条南9）</div></div></div>
+          <div class="fi"><span class="fi-ico">🍰</span><div class="fi-info"><div class="fi-name">六花亭バターサンド（帶廣限定品）</div><div class="fi-shop">六花亭 帯広本店｜帯広市西2条南9-6｜0155-24-6666</div><div class="fi-note">帶廣本店有限定款，新千歲機場版沒有！</div></div></div>
+          <div class="fi"><span class="fi-ico">🧁</span><div class="fi-info"><div class="fi-name">柳月 三方六（紋樣蛋糕捲）</div><div class="fi-shop">柳月 帯広本店｜帯広市西2条南9-7｜0155-23-2101</div><div class="fi-note">六花亭旁邊！白樺紋樣，十勝特產</div></div></div>
+          <div class="fi"><span class="fi-ico">🥛</span><div class="fi-info"><div class="fi-name">十勝乳製品＋農產品</div><div class="fi-shop">道の駅おとふけ「なつぞらのふる里」｜河東郡音更町</div><div class="fi-note">じゃらん2025道の駅ランキング全道第1位！返新千歲途中必停</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D13 -->
+    <div class="day-card">
+      <div class="day-head" onclick="tog(this)">
+        <span class="dnum" style="background:#f0f0ee;color:#555">Day 13</span>
+        <span class="ddate">7/31 週五</span>
+        <span class="dtitle">✈️ 新千歲機場 → 返台</span>
+        <span class="darea">帶廣→新千歲（約2h）還車離境</span>
+        <span class="dchev">▾</span>
+      </div>
+      <div class="dbody">
+        <div class="tl">
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--ink3)"></div><div class="tl-line"></div></div><span class="ttime">上午</span><div class="tcont"><div class="tname">🚗 自駕返新千歲（約2h）</div><div class="tdesc">走道東道＋道央道，中途可停道の駅おとふけ</div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-line"></div></div><span class="ttime">12:00</span><div class="tcont"><div class="tname">🛍 新千歲機場 2小時大採購</div><div class="tdesc">白色戀人・Royce'・北菓樓・LeTAO・拉麵道場・根室花まる，建議留足2小時</div></div></div>
+          <div class="tr"><div class="tl-left"><div class="tl-dot" style="background:var(--sky)"></div></div><span class="ttime">下午</span><div class="tcont"><div class="tname">✈️ 新千歲→名古屋→台北 離日</div><div class="tdesc">建議航班不早於15:00</div></div></div>
+        </div>
+        <div class="food-blk"><div class="food-lbl">🍽 機場必買</div>
+          <div class="fi"><span class="fi-ico">🍫</span><div class="fi-info"><div class="fi-name">白色戀人</div><div class="fi-shop">石屋製菓 機場旗艦店（3F）｜機場最大店，有限定口味</div></div></div>
+          <div class="fi"><span class="fi-ico">🍫</span><div class="fi-info"><div class="fi-name">Royce' 生巧克力</div><div class="fi-shop">Royce' 機場店（3F）｜冷藏品，機場買最新鮮</div></div></div>
+          <div class="fi"><span class="fi-ico">🧁</span><div class="fi-info"><div class="fi-name">北菓樓 夢不思議泡芙</div><div class="fi-shop">北菓樓 機場店（3F）｜當天製作，熱賣常售完</div></div></div>
+          <div class="fi"><span class="fi-ico">🍜</span><div class="fi-info"><div class="fi-name">最後一碗拉麵</div><div class="fi-shop">北海道ラーメン道場（3F）｜旭川・函館・札幌6家名店匯集</div></div></div>
+          <div class="fi"><span class="fi-ico">🍣</span><div class="fi-info"><div class="fi-name">最後海鮮</div><div class="fi-shop">根室花まる 機場店（3F）｜道東海鮮，常排隊，早點去</div></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BOOKING -->
+<div id="booking" class="sec" style="padding-top:0">
+  <div class="sec-label">預約清單（按緊急程度）</div>
+  <div class="book-wrap">
+    <table>
+      <tbody><tr><th>優先</th><th>項目</th><th>日期</th><th>預約方式</th><th>費用參考</th></tr>
+      <tr><td><span class="pr pr-now">🔴 立刻</span></td><td>KIKI知床ナチュラルリゾート（3晚）</td><td>7/25-28</td><td>kikishiretoko.co.jp</td><td>旺季約¥20,000/人/晚起</td></tr>
+      <tr><td><span class="pr pr-now">🔴 立刻</span></td><td>知床五湖 中文嚮導（大環線）</td><td>7/26</td><td>シンラ: 0152-22-5522 或 KKday「知床五湖」</td><td>中學生以上¥6,000/小學生¥4,000</td></tr>
+      <tr><td><span class="pr pr-now">🔴 立刻</span></td><td>羅臼 賞鯨船</td><td>7/25</td><td>rausu-cruise.com（観光船はまなす）</td><td>大人¥8,000/小孩¥4,500</td></tr>
+      <tr><td><span class="pr pr-week">🟠 本週</span></td><td>ピッキオ 夜間野生動物巡遊</td><td>7/27晚</td><td>shiretoko-picchio.com/jp/</td><td>約¥5,000/人</td></tr>
+      <tr><td><span class="pr pr-week">🟠 本週</span></td><td>棕熊觀察船（ルシャ灣）</td><td>7/26午後</td><td>kamuiwakka.jp（ゴジラ岩観光）</td><td>約¥8,000-12,000/人</td></tr>
+      <tr><td><span class="pr pr-week">🟠 本週</span></td><td>層雲峽観光ホテル（1晚）</td><td>7/23</td><td>楽天トラベル 或 じゃらん</td><td>含餐約¥20,000/人</td></tr>
+      <tr><td><span class="pr pr-month">🟡 1個月前</span></td><td>富良野 溪流釣魚</td><td>7/22午後</td><td>veltra.com 搜尋「富良野 釣魚」</td><td>約¥6,000-8,000/人</td></tr>
+      <tr><td><span class="pr pr-month">🟡 1個月前</span></td><td>宇登呂 船釣（第18喜共丸）</td><td>7/27早</td><td>電話：090-8425-9122</td><td>鰈魚釣¥9,000/人</td></tr>
+      <tr><td><span class="pr pr-month">🟡 1個月前</span></td><td>釧路 炉ばた 爐端焼き 晚餐</td><td>7/29晚</td><td>電話：0154-22-6636</td><td>約¥3,000-5,000/人</td></tr>
+      <tr><td><span class="pr pr-month">🟡 隨時</span></td><td>旭川・富良野・帶廣・釧路 各住宿</td><td>各晚</td><td>楽天トラベル / じゃらん / Booking.com</td><td>依旅館各異</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- TIPS -->
+<div id="tips" class="sec" style="padding-top:0">
+  <div class="sec-label">旅行重點提醒</div>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-ico">🚗</div><div class="tip-ttl">租車建議</div><div class="tip-txt">旭川機場取車，新千歲機場還車（異地還車費約¥5,500-11,000）。建議 Toyota Voxy 或 Alphard 7人座 SUV，帶孩子最舒適。記得買 ETC 卡。</div></div>
+    <div class="tip-card"><div class="tip-ico">🐻</div><div class="tip-ttl">知床五湖規則</div><div class="tip-txt">5/10-7/31 棕熊活動期，地面步道必須跟認定嚮導，不能自行入場。7/26 仍在活動期內，中文嚮導名額極少，現在就要預約！</div></div>
+    <div class="tip-card"><div class="tip-ico">💜</div><div class="tip-ttl">薰衣草最佳時機</div><div class="tip-txt">富田農場薰衣草 7/15-25 達全盛期，7/19 出發命中黃金窗口。建議早上9點前到，人少光線最美。下午大排長龍。</div></div>
+    <div class="tip-card"><div class="tip-ico">🐋</div><div class="tip-ttl">賞鯨最佳季節</div><div class="tip-txt">7月下旬至9月是抹香鯨旺季，見鯨率90%以上。虎鯨7月也可見。賞鯨從羅臼（根室海峽側）出發，不是宇登呂。</div></div>
+    <div class="tip-card"><div class="tip-ico">👶</div><div class="tip-ttl">帶幼兒注意</div><div class="tip-txt">KIKI知床幼兒（0-5歲）施設使用料每人¥4,000/晚（含食事）。賞鯨船各家最小年齡限制不同，出發前確認。</div></div>
+    <div class="tip-card"><div class="tip-ico">🌡️</div><div class="tip-ttl">7月服裝建議</div><div class="tip-txt">知床羅臼夏季最高氣溫常不到20°C，海上更冷。必備：輕薄羽絨、防風外套、長褲。富良野較暖，但早晚溫差大。</div></div>
+  </div>
+</div>
+
+<footer>
+  <p>🗾 北海道家庭自駕行程 2026夏 &nbsp;·&nbsp; <strong>12天11晚</strong> &nbsp;·&nbsp; 旭川入 ↔ 新千歲出</p>
+  <p style="margin-top:8px">行程由 Claude AI 規劃整理 · 實際資訊以各官網為準 · 出發前請再次確認各店家營業狀況</p>
+</footer>
+
+<script>
+function tog(h){const b=h.nextElementSibling,c=h.querySelector('.dchev');b.classList.toggle('open');c.classList.toggle('open')}
+function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+// highlight active nav on scroll
+const secs=['hero','route','itinerary','food','booking','tips'];
+const navBtns=document.querySelectorAll('.nav-btn');
+window.addEventListener('scroll',()=>{
+  let cur=secs[0];
+  secs.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=80)cur=id});
+  navBtns.forEach((b,i)=>b.classList.toggle('active',secs[i]===cur));
+},{passive:true});
+document.querySelectorAll('.day-head')[0].click();
+</script>
+
+
+</body></html>
