@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 11｜掰掰第一隊 → 舒芙雷 → 企鵝房！</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap');
+:root{
+  --green:#4c5f3d; --green2:#6b7d52; --cream:#f4efdf; --paper:#fffdf4;
+  --orange:#e08a3c; --coral:#d96c4f; --sky:#7da7c4; --brown:#8a6d4b;
+  --ink:#3d3a30; --ink2:#6f6a5a; --line:#e3dcc4; --pink:#e8a7a0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#d8d2bd;font-family:'Zen Maru Gothic','Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--ink);
+display:flex;justify-content:center;padding:20px}
+.page{width:794px;min-height:1123px;background:var(--cream);position:relative;display:flex;flex-direction:column;
+padding:14px 16px 46px;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+@media print{
+  body{background:none;padding:0}
+  .page{box-shadow:none;width:210mm;min-height:297mm}
+  @page{size:A4 portrait;margin:0}
+}
+/* ---------- header ---------- */
+.hd{display:flex;gap:12px;align-items:stretch;margin-bottom:10px}
+.ribbon{background:var(--green);color:#fff;width:96px;flex:none;text-align:center;
+padding:10px 6px 14px;border-radius:0 0 14px 14px;position:relative}
+.ribbon .d{font-size:12px;letter-spacing:2px;font-weight:700}
+.ribbon .n{font-size:52px;font-weight:900;line-height:1.05}
+.ribbon .dt{font-size:11px;background:rgba(255,255,255,.15);border-radius:8px;padding:2px 4px;margin-top:4px;display:inline-block}
+.hd-mid{flex:1;padding-top:2px}
+.brand{font-size:12px;color:var(--green);font-weight:700;letter-spacing:1px}
+.title{font-size:34px;font-weight:900;color:#33301f;line-height:1.15;margin:2px 0}
+.subtitle{font-size:13px;color:var(--ink2);font-weight:700}
+.badge{display:inline-block;background:var(--coral);color:#fff;font-size:12px;font-weight:700;
+border-radius:16px;padding:3px 12px;margin-top:6px}
+.tasks{flex:none;width:230px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:8px 10px}
+.tasks h3{font-size:13px;color:var(--green);margin-bottom:4px}
+.tasks div{font-size:11.5px;font-weight:700;padding:1.5px 0}
+.cat{flex:none;width:74px;text-align:center;font-size:46px;line-height:1;padding-top:6px}
+.cat span{display:block;font-size:10.5px;font-weight:900;color:var(--coral);border:1.5px dashed var(--coral);
+border-radius:12px;padding:2px 4px;margin-bottom:6px;background:#fff}
+/* ---------- grid ---------- */
+.grid{display:grid;grid-template-columns:1.02fr 1.1fr .98fr;gap:10px}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:10px 11px;margin-bottom:10px}
+.card h3{font-size:13.5px;color:var(--green);margin-bottom:7px}
+.card h3 .paw{color:var(--orange)}
+/* timeline */
+.tl{position:relative}
+.tstep{display:flex;gap:8px;margin-bottom:9px;position:relative}
+.tstep:not(:last-child):before{content:"";position:absolute;left:10px;top:22px;bottom:-9px;border-left:2px dotted var(--green2)}
+.tnum{flex:none;width:21px;height:21px;border-radius:50%;background:var(--green);color:#fff;
+font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:1}
+.tbody{flex:1}
+.trow1{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.ttime{font-size:11px;font-weight:900;color:var(--coral)}
+.tname{font-size:12.5px;font-weight:900}
+.tdur{font-size:10px;color:var(--orange);font-weight:700;white-space:nowrap}
+.tdesc{font-size:10.5px;color:var(--ink2);line-height:1.45}
+/* picks */
+.pick{border:1.5px solid var(--line);border-radius:12px;padding:8px 9px;margin-bottom:8px;background:#fff}
+.pick:last-child{margin-bottom:0}
+.prow{display:flex;align-items:center;gap:7px}
+.ptag{flex:none;background:var(--orange);color:#fff;font-size:10px;font-weight:900;border-radius:6px;padding:2px 6px}
+.pname{font-size:13px;font-weight:900}
+.pstars{font-size:11px;color:var(--orange);margin:1px 0 3px 0;font-weight:700}
+.picon{font-size:20px;line-height:1}
+.ppt{font-size:11px;line-height:1.5}
+.ppt li{margin-left:15px}
+.ptip{margin-top:5px;background:#d8d2bd;border:1px dashed var(--orange);border-radius:8px;
+padding:3px 7px;font-size:10.5px;color:#8a5a13;font-weight:700}
+/* right column blocks */
+.story p,.know p{font-size:11.5px;line-height:1.65}
+.find div{font-size:11.5px;font-weight:700;padding:2px 0 2px 18px;text-indent:-18px}
+.photos{display:flex;gap:6px}
+.ph{flex:1;height:64px;background:#fff;border:1.5px dashed #d8cfae;border-radius:8px;position:relative}
+.ph:before{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(-2deg);
+width:34px;height:10px;background:repeating-linear-gradient(45deg,#bcd4bc,#bcd4bc 3px,#d6e6d6 3px,#d6e6d6 6px);opacity:.9;border-radius:2px}
+.say div{border-bottom:1.5px dashed #d8cfae;height:20px}
+/* hotel */
+.hotel{background:#d8d2bd;border:1.5px solid #d8cfae}
+.hotel .hname{font-size:14px;font-weight:900;color:var(--green);margin-bottom:3px}
+.hotel li{font-size:11px;margin-left:15px;line-height:1.55}
+/* reminders */
+.remind li{font-size:11px;margin-left:15px;line-height:1.6}
+.remind{background:#d8d2bd;border-color:#d8cfae}
+.remind h3{color:#8a5a13}
+/* footer */
+
+/* free-draw zone */
+.freezone{flex:1;min-height:160px;margin-top:2px;background:var(--paper);
+border:2.5px dashed #d8cfae;border-radius:16px;padding:10px 14px;position:relative;overflow:hidden}
+.fz-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.freezone h3{font-size:14px;color:var(--green)}
+.fz-sub{font-size:11px;color:var(--ink2);font-weight:700}
+.fz-flake{position:absolute;opacity:.35;font-size:15px}
+.f1{top:12px;right:118px}.f2{bottom:14px;left:14px}
+.fz-peng{position:absolute;right:12px;bottom:6px;width:72px;opacity:.9}
+.fz-peng svg{width:100%;height:auto}
+.cat .peng{width:70px;height:auto}
+
+/* equal-height columns: middle band is one solid block */
+.grid>div{display:flex;flex-direction:column}
+.grid>div>.card{margin-bottom:10px;flex:0 0 auto}
+.grid>div>.card:last-child{flex:1 0 auto;margin-bottom:0}
+.freezone{margin-top:10px}
+.mama{background:#d8d2bd;border-color:#d8cfae}
+.mama li{font-size:11px;margin-left:15px;line-height:1.62}
+.cat{width:86px;font-size:44px;text-align:center;line-height:1.15}
+.cat .peng{width:112px;height:auto}
+
+.cat .logo{width:118px;height:auto}
+
+.nature{background:#F9F7F7}
+.nature li{font-size:11px;margin-left:15px;line-height:1.62}
+
+.bigclass li{font-size:11.5px;margin-left:15px;line-height:1.7;padding:1px 0}
+.foot{position:absolute;left:0;right:0;bottom:0;background:var(--green);color:#fff;
+text-align:center;font-size:12px;font-weight:900;padding:7px;letter-spacing:1px}
+</style></head><body>
+<div class="page">
+  <div class="hd">
+    <div class="ribbon"><div class="d">DAY 11</div><div class="n">11</div><div class="dt">2026/8/1（六）</div></div>
+    <div class="hd-mid">
+      <div class="brand">🐾 貓咪探險隊 CAT EXPEDITION TEAM</div>
+      <div class="title">掰掰第一隊 → 舒芙雷 → 企鵝房！ 🐾</div>
+      <div class="subtitle">送別先回家的隊伍，吃舒芙雷鬆餅，晚上睡企鵝房間！</div>
+      <div class="badge">今晚睡在企鵝的家！　🐾</div>
+    </div>
+    <div class="tasks"><h3>❄️ 今天的任務</h3><div>☑ 跟先回家的隊伍抱抱說掰掰</div><div>☑ 鑽進螞蟻的地下隧道</div><div>☑ 吃現烤舒芙雷鬆餅</div><div>☑ 住進 Suica 企鵝房！</div></div>
+    <div class="cat"><span>探險出發！</span>🐱🎒</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 我們今天的路線</h3><div class="tl"><div class="tstep"><div class="tnum">1</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">早上</span> 跟第一隊說掰掰！</span><span class="tdur">👋</span></div>
+<div class="tdesc">先回台灣的隊伍今天一早還車搭飛機——抱一個，台灣見！</div></div></div><div class="tstep"><div class="tnum">2</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">9:00</span> 瀧野鈴蘭丘陵公園開園衝！</span><span class="tdur">2小時</span></div>
+<div class="tdesc">鑽螞蟻之家地下隧道、玩大遊具，早上最涼快</div></div></div><div class="tstep"><div class="tnum">3</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">11:30</span> 出發去千歲 DOREMO</span><span class="tdur">約40分</span></div>
+<div class="tdesc">鈴蘭到千歲約 40 分鐘，剛好順路</div></div></div><div class="tstep"><div class="tnum">4</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">12:15</span> 舒芙雷鬆餅午餐！🥞</span><span class="tdur">60分</span></div>
+<div class="tdesc">現烤要等 20 分鐘，但晃一晃會抖抖的，超值得！</div></div></div><div class="tstep"><div class="tnum">5</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">下午</span> 開回札幌（約50分）</span><span class="tdur">約50分</span></div>
+<div class="tdesc">車上睡個午覺</div></div></div><div class="tstep"><div class="tnum">6</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">15:00</span> 入住 Suica 企鵝房！🐧</span></div>
+<div class="tdesc">Mets 札幌的限定房：找找房間裡藏了幾隻企鵝，還有企鵝禮物！</div></div></div></div></div>
+      <div class="card remind"><h3>⚠️ 小提醒</h3><ul class="remind"><li>公園會玩到流汗，帶換洗衣物</li><li>DOREMO 週六人多，7/31 先預約座位（現烤約 20 分）</li><li>跟第一隊說掰掰可能會捨不得，抱緊一點沒關係</li></ul></div>
+    </div>
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 隊長推薦（今天的亮點！）</h3><div class="pick"><div class="prow"><span class="picon">🥞</span><span class="ptag">中午</span><span class="pname">DOREMO LeTAO</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>現烤舒芙雷鬆餅，入口就融化</li><li>麵包工房剛出爐的麵包香噴噴</li><li>1,600 坪大店，飯後可以逛</li></ul><div class="ptip">💡 咖啡座 11:00 開，可以前一天先預約！</div></div><div class="pick"><div class="prow"><span class="picon">🐧</span><span class="ptag">晚上</span><span class="pname">Suica 企鵝房</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>一天只有一間的限定企鵝房！</li><li>有企鵝原創週邊當禮物</li><li>貓咪小隊住進企鵝的家，跨界作客太有趣！</li></ul><div class="ptip">💡 數數看房間裡總共幾隻企鵝</div></div><div class="pick"><div class="prow"><span class="picon">🐜</span><span class="ptag">上午</span><span class="pname">瀧野鈴蘭丘陵公園</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>北海道唯一的國營公園，超級大！</li><li>螞蟻之家地下隧道像真的螞蟻窩</li><li>彩色大遊具＋彈跳雲</li></ul><div class="ptip">💡 9:00 開園就進場，早上最涼</div></div></div>
+      <div class="card hotel"><h3>🛏 今天晚上住這裡！</h3><div class="hname">JR 東日本 Hotel Mets 札幌・Suica 企鵝房！</div><ul><li>一天只有一間的限定房型</li><li>有企鵝週邊禮物</li><li>札幌站直結，明天出發超方便</li></ul></div>
+    </div>
+    <div>
+      <div class="card story"><h3>🔍 小小探險家百科</h3><p><b>🌏 探險故事：</b>今天要跟一起冒險了 10 天的隊友說掰掰了。說掰掰不是結束——是「下次見」的開始！他們先飛回台灣，我們多留一天，吃甜甜的舒芙雷、睡進企鵝的房間。兩隊的冒險故事，回台灣再交換著說！</p></div>
+      <div class="card mama"><h3>🐧 貓咪隊長小教室</h3><ul class="bigclass"><li>舒芙雷為什麼澎澎的？因為蛋白打進了好多好多空氣，一烤就膨起來像雲</li><li>Suica 企鵝是日本交通卡上的小企鵝明星，全日本的車站都看得到牠</li><li>說掰掰不是結束，是「下次見」的開始！</li><li>「螞蟻之家」隧道是學真的螞蟻窩蓋的——地下有好多房間和走廊</li><li>鬆餅現烤要 20 分鐘，好吃的東西值得慢慢等</li></ul></div>
+      <div class="card find"><h3>🔭 今天一起找找看！</h3><div>☐ 螞蟻隧道通到哪裡？</div><div>☐ 舒芙雷搖一搖會怎樣？</div><div>☐ 房間裡找到幾隻企鵝？</div><div>☐ 最想念第一隊的什麼？</div></div>
+    </div>
+  </div>
+  <div class="freezone">
+    <div class="fz-head"><h3>🐧 小貓咪的自由創作區</h3><span class="fz-sub">今天的照片、今天說了什麼、畫畫塗鴉……想放什麼都可以！</span></div>
+    <span class="fz-flake f1">🐾</span><span class="fz-flake f2">🐾</span>
+  </div>
+  <div class="foot">🐾　貓咪探險隊守則：照顧自己，保護彼此，一起享受每一次的冒險！　🐾</div>
+</div></body></html>

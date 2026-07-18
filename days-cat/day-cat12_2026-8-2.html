@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 12｜還車 → 快樂回家！</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap');
+:root{
+  --green:#4c5f3d; --green2:#6b7d52; --cream:#f4efdf; --paper:#fffdf4;
+  --orange:#e08a3c; --coral:#d96c4f; --sky:#7da7c4; --brown:#8a6d4b;
+  --ink:#3d3a30; --ink2:#6f6a5a; --line:#e3dcc4; --pink:#e8a7a0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#d8d2bd;font-family:'Zen Maru Gothic','Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--ink);
+display:flex;justify-content:center;padding:20px}
+.page{width:794px;min-height:1123px;background:var(--cream);position:relative;display:flex;flex-direction:column;
+padding:14px 16px 46px;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+@media print{
+  body{background:none;padding:0}
+  .page{box-shadow:none;width:210mm;min-height:297mm}
+  @page{size:A4 portrait;margin:0}
+}
+/* ---------- header ---------- */
+.hd{display:flex;gap:12px;align-items:stretch;margin-bottom:10px}
+.ribbon{background:var(--green);color:#fff;width:96px;flex:none;text-align:center;
+padding:10px 6px 14px;border-radius:0 0 14px 14px;position:relative}
+.ribbon .d{font-size:12px;letter-spacing:2px;font-weight:700}
+.ribbon .n{font-size:52px;font-weight:900;line-height:1.05}
+.ribbon .dt{font-size:11px;background:rgba(255,255,255,.15);border-radius:8px;padding:2px 4px;margin-top:4px;display:inline-block}
+.hd-mid{flex:1;padding-top:2px}
+.brand{font-size:12px;color:var(--green);font-weight:700;letter-spacing:1px}
+.title{font-size:34px;font-weight:900;color:#33301f;line-height:1.15;margin:2px 0}
+.subtitle{font-size:13px;color:var(--ink2);font-weight:700}
+.badge{display:inline-block;background:var(--coral);color:#fff;font-size:12px;font-weight:700;
+border-radius:16px;padding:3px 12px;margin-top:6px}
+.tasks{flex:none;width:230px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:8px 10px}
+.tasks h3{font-size:13px;color:var(--green);margin-bottom:4px}
+.tasks div{font-size:11.5px;font-weight:700;padding:1.5px 0}
+.cat{flex:none;width:74px;text-align:center;font-size:46px;line-height:1;padding-top:6px}
+.cat span{display:block;font-size:10.5px;font-weight:900;color:var(--coral);border:1.5px dashed var(--coral);
+border-radius:12px;padding:2px 4px;margin-bottom:6px;background:#fff}
+/* ---------- grid ---------- */
+.grid{display:grid;grid-template-columns:1.02fr 1.1fr .98fr;gap:10px}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:10px 11px;margin-bottom:10px}
+.card h3{font-size:13.5px;color:var(--green);margin-bottom:7px}
+.card h3 .paw{color:var(--orange)}
+/* timeline */
+.tl{position:relative}
+.tstep{display:flex;gap:8px;margin-bottom:9px;position:relative}
+.tstep:not(:last-child):before{content:"";position:absolute;left:10px;top:22px;bottom:-9px;border-left:2px dotted var(--green2)}
+.tnum{flex:none;width:21px;height:21px;border-radius:50%;background:var(--green);color:#fff;
+font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:1}
+.tbody{flex:1}
+.trow1{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.ttime{font-size:11px;font-weight:900;color:var(--coral)}
+.tname{font-size:12.5px;font-weight:900}
+.tdur{font-size:10px;color:var(--orange);font-weight:700;white-space:nowrap}
+.tdesc{font-size:10.5px;color:var(--ink2);line-height:1.45}
+/* picks */
+.pick{border:1.5px solid var(--line);border-radius:12px;padding:8px 9px;margin-bottom:8px;background:#fff}
+.pick:last-child{margin-bottom:0}
+.prow{display:flex;align-items:center;gap:7px}
+.ptag{flex:none;background:var(--orange);color:#fff;font-size:10px;font-weight:900;border-radius:6px;padding:2px 6px}
+.pname{font-size:13px;font-weight:900}
+.pstars{font-size:11px;color:var(--orange);margin:1px 0 3px 0;font-weight:700}
+.picon{font-size:20px;line-height:1}
+.ppt{font-size:11px;line-height:1.5}
+.ppt li{margin-left:15px}
+.ptip{margin-top:5px;background:#d8d2bd;border:1px dashed var(--orange);border-radius:8px;
+padding:3px 7px;font-size:10.5px;color:#8a5a13;font-weight:700}
+/* right column blocks */
+.story p,.know p{font-size:11.5px;line-height:1.65}
+.find div{font-size:11.5px;font-weight:700;padding:2px 0 2px 18px;text-indent:-18px}
+.photos{display:flex;gap:6px}
+.ph{flex:1;height:64px;background:#fff;border:1.5px dashed #d8cfae;border-radius:8px;position:relative}
+.ph:before{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(-2deg);
+width:34px;height:10px;background:repeating-linear-gradient(45deg,#bcd4bc,#bcd4bc 3px,#d6e6d6 3px,#d6e6d6 6px);opacity:.9;border-radius:2px}
+.say div{border-bottom:1.5px dashed #d8cfae;height:20px}
+/* hotel */
+.hotel{background:#d8d2bd;border:1.5px solid #d8cfae}
+.hotel .hname{font-size:14px;font-weight:900;color:var(--green);margin-bottom:3px}
+.hotel li{font-size:11px;margin-left:15px;line-height:1.55}
+/* reminders */
+.remind li{font-size:11px;margin-left:15px;line-height:1.6}
+.remind{background:#d8d2bd;border-color:#d8cfae}
+.remind h3{color:#8a5a13}
+/* footer */
+
+/* free-draw zone */
+.freezone{flex:1;min-height:160px;margin-top:2px;background:var(--paper);
+border:2.5px dashed #d8cfae;border-radius:16px;padding:10px 14px;position:relative;overflow:hidden}
+.fz-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.freezone h3{font-size:14px;color:var(--green)}
+.fz-sub{font-size:11px;color:var(--ink2);font-weight:700}
+.fz-flake{position:absolute;opacity:.35;font-size:15px}
+.f1{top:12px;right:118px}.f2{bottom:14px;left:14px}
+.fz-peng{position:absolute;right:12px;bottom:6px;width:72px;opacity:.9}
+.fz-peng svg{width:100%;height:auto}
+.cat .peng{width:70px;height:auto}
+
+/* equal-height columns: middle band is one solid block */
+.grid>div{display:flex;flex-direction:column}
+.grid>div>.card{margin-bottom:10px;flex:0 0 auto}
+.grid>div>.card:last-child{flex:1 0 auto;margin-bottom:0}
+.freezone{margin-top:10px}
+.mama{background:#d8d2bd;border-color:#d8cfae}
+.mama li{font-size:11px;margin-left:15px;line-height:1.62}
+.cat{width:86px;font-size:44px;text-align:center;line-height:1.15}
+.cat .peng{width:112px;height:auto}
+
+.cat .logo{width:118px;height:auto}
+
+.nature{background:#F9F7F7}
+.nature li{font-size:11px;margin-left:15px;line-height:1.62}
+
+.bigclass li{font-size:11.5px;margin-left:15px;line-height:1.7;padding:1px 0}
+.foot{position:absolute;left:0;right:0;bottom:0;background:var(--green);color:#fff;
+text-align:center;font-size:12px;font-weight:900;padding:7px;letter-spacing:1px}
+</style></head><body>
+<div class="page">
+  <div class="hd">
+    <div class="ribbon"><div class="d">DAY 12</div><div class="n">12</div><div class="dt">2026/8/2（日）</div></div>
+    <div class="hd-mid">
+      <div class="brand">🐾 貓咪探險隊 CAT EXPEDITION TEAM</div>
+      <div class="title">還車 → 快樂回家！ 🐾</div>
+      <div class="subtitle">跟探險車和北海道說謝謝，帶著滿箱回憶飛回台北！</div>
+      <div class="badge">貓咪隊長的行李箱裝滿回憶！　🐾</div>
+    </div>
+    <div class="tasks"><h3>❄️ 今天的任務</h3><div>☑ 收行李、檢查房間</div><div>☑ 10:00 前還車</div><div>☑ 機場找哆啦A夢</div><div>☑ 平安飛回台北！</div></div>
+    <div class="cat"><span>探險出發！</span>🐱🎒</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 我們今天的路線</h3><div class="tl"><div class="tstep"><div class="tnum">1</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">上午</span> 退房出發</span><span class="tdur">🧳</span></div>
+<div class="tdesc">檢查床底和插座、企鵝禮物帶了沒！</div></div></div><div class="tstep"><div class="tnum">2</div><div class="tbody">
+<div class="trow1"><span class="tname">開往新千歲機場（約1小時）</span><span class="tdur">約1小時</span></div>
+<div class="tdesc">最後一段路，車上回顧這 12 天最好玩的事</div></div></div><div class="tstep"><div class="tnum">3</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">10:00</span> 還車＋跟探險車說謝謝</span><span class="tdur">30分</span></div>
+<div class="tdesc">辛苦了！載我們跑了好幾百公里</div></div></div><div class="tstep"><div class="tnum">4</div><div class="tbody">
+<div class="trow1"><span class="tname">新千歲機場探險</span><span class="tdur">彈性</span></div>
+<div class="tdesc">報到託運後：哆啦A夢空中樂園、Royce 巧克力世界、伴手禮補貨</div></div></div><div class="tstep"><div class="tnum">5</div><div class="tbody">
+<div class="trow1"><span class="tname">起飛回台北！✈️</span><span class="tdur">🛫</span></div>
+<div class="tdesc">坐窗邊跟北海道說掰掰，下次再來！</div></div></div></div></div>
+      <div class="card remind"><h3>⚠️ 小提醒</h3><ul class="remind"><li>還車時間 10:00，早餐吃完就出發</li><li>護照、機票、錢包出門前再檢查一次</li><li>液體和剪刀要放託運行李</li><li>飛機起降耳朵悶悶的，吞吞口水就好</li></ul></div>
+    </div>
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 隊長推薦（今天的亮點！）</h3><div class="pick"><div class="prow"><span class="picon">🤖</span><span class="ptag">機場</span><span class="pname">哆啦A夢空中樂園</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>新千歲機場 3F，拍照玩遊戲</li><li>旁邊還有 Hello Kitty</li></ul><div class="ptip">💡 先辦報到託運再輕鬆逛</div></div><div class="pick"><div class="prow"><span class="picon">🍫</span><span class="ptag">機場</span><span class="pname">Royce 巧克力世界</span></div>
+<div class="pstars">推薦度 ★★★★☆</div><ul class="ppt"><li>隔著玻璃看巧克力生產線</li><li>最後的伴手禮在這裡補</li></ul></div><div class="pick"><div class="prow"><span class="picon">🧳</span><span class="ptag">全天</span><span class="pname">貓咪隊長的行李箱</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>來的時候裝衣服，回去裝滿回憶</li><li>伴手禮、圖腹服裝、企鵝禮物通通帶回家</li></ul><div class="ptip">💡 超重的話大人會想辦法的 😄</div></div></div>
+      <div class="card hotel"><h3>🛏 今天晚上住這裡！</h3><div class="hname">今晚睡自己的床！</div><ul><li>回到台北溫暖的家</li><li>跟玩具們說：我們回來啦！</li><li>作夢會夢到鯨魚還是煙火呢？</li></ul></div>
+    </div>
+    <div>
+      <div class="card story"><h3>🔍 小小探險家百科</h3><p><b>🌏 探險故事：</b>12 天的大冒險到今天畢業了！我們看過鯨魚噴水、在發光的森林幫橿鳥打節奏、把肚子畫成大臉、看了三場大花火、還睡了企鵝的房間……每個人都是超棒的小探險家。回家以後，記得把這些故事說給大家聽——冒險就永遠不會結束！</p></div>
+      <div class="card mama"><h3>🐧 貓咪隊長小教室</h3><ul class="bigclass"><li>飛機會飛，是因為翅膀的形狀讓空氣把它往上推</li><li>新千歲機場是北海道最大的機場，大到裡面有電影院和溫泉！</li><li>我們的探險車這 12 天跑了好幾百公里，跟它說聲謝謝</li><li>行李箱變重了，因為裝滿了伴手禮——和滿滿的回憶</li><li>回家以後把北海道的故事畫下來、說給大家聽，冒險就永遠不會結束</li></ul></div>
+      <div class="card find"><h3>🔭 今天一起找找看！</h3><div>☐ 機場找到哆啦A夢了嗎？</div><div>☐ 起飛時窗外看到什麼？</div><div>☐ 這 12 天最想再來一次的是哪裡？</div><div>☐ 回家第一個想分享的故事是什麼？</div></div>
+    </div>
+  </div>
+  <div class="freezone">
+    <div class="fz-head"><h3>🐧 小貓咪的自由創作區</h3><span class="fz-sub">今天的照片、今天說了什麼、畫畫塗鴉……想放什麼都可以！</span></div>
+    <span class="fz-flake f1">🐾</span><span class="fz-flake f2">🐾</span>
+  </div>
+  <div class="foot">🐾　貓咪探險隊守則：照顧自己，保護彼此，一起享受每一次的冒險！　🐾</div>
+</div></body></html>

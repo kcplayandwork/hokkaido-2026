@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 8｜花田・哈密瓜・肚臍祭！</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap');
+:root{
+  --green:#4c5f3d; --green2:#6b7d52; --cream:#f4efdf; --paper:#fffdf4;
+  --orange:#e08a3c; --coral:#d96c4f; --sky:#7da7c4; --brown:#8a6d4b;
+  --ink:#3d3a30; --ink2:#6f6a5a; --line:#e3dcc4; --pink:#e8a7a0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#d8d2bd;font-family:'Zen Maru Gothic','Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--ink);
+display:flex;justify-content:center;padding:20px}
+.page{width:794px;min-height:1123px;background:var(--cream);position:relative;display:flex;flex-direction:column;
+padding:14px 16px 46px;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+@media print{
+  body{background:none;padding:0}
+  .page{box-shadow:none;width:210mm;min-height:297mm}
+  @page{size:A4 portrait;margin:0}
+}
+/* ---------- header ---------- */
+.hd{display:flex;gap:12px;align-items:stretch;margin-bottom:10px}
+.ribbon{background:var(--green);color:#fff;width:96px;flex:none;text-align:center;
+padding:10px 6px 14px;border-radius:0 0 14px 14px;position:relative}
+.ribbon .d{font-size:12px;letter-spacing:2px;font-weight:700}
+.ribbon .n{font-size:52px;font-weight:900;line-height:1.05}
+.ribbon .dt{font-size:11px;background:rgba(255,255,255,.15);border-radius:8px;padding:2px 4px;margin-top:4px;display:inline-block}
+.hd-mid{flex:1;padding-top:2px}
+.brand{font-size:12px;color:var(--green);font-weight:700;letter-spacing:1px}
+.title{font-size:34px;font-weight:900;color:#33301f;line-height:1.15;margin:2px 0}
+.subtitle{font-size:13px;color:var(--ink2);font-weight:700}
+.badge{display:inline-block;background:var(--coral);color:#fff;font-size:12px;font-weight:700;
+border-radius:16px;padding:3px 12px;margin-top:6px}
+.tasks{flex:none;width:230px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:8px 10px}
+.tasks h3{font-size:13px;color:var(--green);margin-bottom:4px}
+.tasks div{font-size:11.5px;font-weight:700;padding:1.5px 0}
+.cat{flex:none;width:74px;text-align:center;font-size:46px;line-height:1;padding-top:6px}
+.cat span{display:block;font-size:10.5px;font-weight:900;color:var(--coral);border:1.5px dashed var(--coral);
+border-radius:12px;padding:2px 4px;margin-bottom:6px;background:#fff}
+/* ---------- grid ---------- */
+.grid{display:grid;grid-template-columns:1.02fr 1.1fr .98fr;gap:10px}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:10px 11px;margin-bottom:10px}
+.card h3{font-size:13.5px;color:var(--green);margin-bottom:7px}
+.card h3 .paw{color:var(--orange)}
+/* timeline */
+.tl{position:relative}
+.tstep{display:flex;gap:8px;margin-bottom:9px;position:relative}
+.tstep:not(:last-child):before{content:"";position:absolute;left:10px;top:22px;bottom:-9px;border-left:2px dotted var(--green2)}
+.tnum{flex:none;width:21px;height:21px;border-radius:50%;background:var(--green);color:#fff;
+font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:1}
+.tbody{flex:1}
+.trow1{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.ttime{font-size:11px;font-weight:900;color:var(--coral)}
+.tname{font-size:12.5px;font-weight:900}
+.tdur{font-size:10px;color:var(--orange);font-weight:700;white-space:nowrap}
+.tdesc{font-size:10.5px;color:var(--ink2);line-height:1.45}
+/* picks */
+.pick{border:1.5px solid var(--line);border-radius:12px;padding:8px 9px;margin-bottom:8px;background:#fff}
+.pick:last-child{margin-bottom:0}
+.prow{display:flex;align-items:center;gap:7px}
+.ptag{flex:none;background:var(--orange);color:#fff;font-size:10px;font-weight:900;border-radius:6px;padding:2px 6px}
+.pname{font-size:13px;font-weight:900}
+.pstars{font-size:11px;color:var(--orange);margin:1px 0 3px 0;font-weight:700}
+.picon{font-size:20px;line-height:1}
+.ppt{font-size:11px;line-height:1.5}
+.ppt li{margin-left:15px}
+.ptip{margin-top:5px;background:#d8d2bd;border:1px dashed var(--orange);border-radius:8px;
+padding:3px 7px;font-size:10.5px;color:#8a5a13;font-weight:700}
+/* right column blocks */
+.story p,.know p{font-size:11.5px;line-height:1.65}
+.find div{font-size:11.5px;font-weight:700;padding:2px 0 2px 18px;text-indent:-18px}
+.photos{display:flex;gap:6px}
+.ph{flex:1;height:64px;background:#fff;border:1.5px dashed #d8cfae;border-radius:8px;position:relative}
+.ph:before{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(-2deg);
+width:34px;height:10px;background:repeating-linear-gradient(45deg,#bcd4bc,#bcd4bc 3px,#d6e6d6 3px,#d6e6d6 6px);opacity:.9;border-radius:2px}
+.say div{border-bottom:1.5px dashed #d8cfae;height:20px}
+/* hotel */
+.hotel{background:#d8d2bd;border:1.5px solid #d8cfae}
+.hotel .hname{font-size:14px;font-weight:900;color:var(--green);margin-bottom:3px}
+.hotel li{font-size:11px;margin-left:15px;line-height:1.55}
+/* reminders */
+.remind li{font-size:11px;margin-left:15px;line-height:1.6}
+.remind{background:#d8d2bd;border-color:#d8cfae}
+.remind h3{color:#8a5a13}
+/* footer */
+
+/* free-draw zone */
+.freezone{flex:1;min-height:160px;margin-top:2px;background:var(--paper);
+border:2.5px dashed #d8cfae;border-radius:16px;padding:10px 14px;position:relative;overflow:hidden}
+.fz-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.freezone h3{font-size:14px;color:var(--green)}
+.fz-sub{font-size:11px;color:var(--ink2);font-weight:700}
+.fz-flake{position:absolute;opacity:.35;font-size:15px}
+.f1{top:12px;right:118px}.f2{bottom:14px;left:14px}
+.fz-peng{position:absolute;right:12px;bottom:6px;width:72px;opacity:.9}
+.fz-peng svg{width:100%;height:auto}
+.cat .peng{width:70px;height:auto}
+
+/* equal-height columns: middle band is one solid block */
+.grid>div{display:flex;flex-direction:column}
+.grid>div>.card{margin-bottom:10px;flex:0 0 auto}
+.grid>div>.card:last-child{flex:1 0 auto;margin-bottom:0}
+.freezone{margin-top:10px}
+.mama{background:#d8d2bd;border-color:#d8cfae}
+.mama li{font-size:11px;margin-left:15px;line-height:1.62}
+.cat{width:86px;font-size:44px;text-align:center;line-height:1.15}
+.cat .peng{width:112px;height:auto}
+
+.cat .logo{width:118px;height:auto}
+
+.nature{background:#F9F7F7}
+.nature li{font-size:11px;margin-left:15px;line-height:1.62}
+
+.bigclass li{font-size:11.5px;margin-left:15px;line-height:1.7;padding:1px 0}
+.foot{position:absolute;left:0;right:0;bottom:0;background:var(--green);color:#fff;
+text-align:center;font-size:12px;font-weight:900;padding:7px;letter-spacing:1px}
+</style></head><body>
+<div class="page">
+  <div class="hd">
+    <div class="ribbon"><div class="d">DAY 8</div><div class="n">8</div><div class="dt">2026/7/29（三）</div></div>
+    <div class="hd-mid">
+      <div class="brand">🐾 貓咪探險隊 CAT EXPEDITION TEAM</div>
+      <div class="title">花田・哈密瓜・肚臍祭！ 🐾</div>
+      <div class="subtitle">上午看紫色花海吃哈密瓜，下午去祭典畫肚子跳舞！</div>
+      <div class="badge">今天要把肚子變成一張臉！　🐾</div>
+    </div>
+    <div class="tasks"><h3>❄️ 今天的任務</h3><div>☑ 看青池的神奇藍色</div><div>☑ 富田農場看薰衣草花海</div><div>☑ 吃甜甜的哈密瓜</div><div>☑ 玩水遊び縁日</div><div>☑ 畫圖腹、跳肚臍舞！</div><div>☑ （撐得住）看閉幕花火</div></div>
+    <div class="cat"><span>探險出發！</span>🐱🎒</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 我們今天的路線</h3><div class="tl"><div class="tstep"><div class="tnum">1</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">8:00</span> 出發去美瑛白金・青池！</span><span class="tdur">50分</span></div>
+<div class="tdesc">早上的青池最藍、人最少，順路看白鬚瀑布</div></div></div><div class="tstep"><div class="tnum">2</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">10:30</span> 富田農場・花田巡禮 💜</span><span class="tdur">2小時</span></div>
+<div class="tdesc">薰衣草＋彩虹花田，像打翻的顏料</div></div></div><div class="tstep"><div class="tnum">3</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">中午</span> 哈密瓜＋薰衣草霜淇淋</span><span class="tdur">45分</span></div>
+<div class="tdesc">富良野哈密瓜切好好的，直接開吃！</div></div></div><div class="tstep"><div class="tnum">4</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">13:30</span> 抵達祭典會場！</span><span class="tdur">60分</span></div>
+<div class="tdesc">小朋友先玩：水遊び縁日＋泡泡人力車（14:30 結束）</div></div></div><div class="tstep"><div class="tnum">5</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">15:00</span> 飛入參加報名（衝！）</span><span class="tdur">60分</span></div>
+<div class="tdesc">ふらっと駐車場受付，每天只有 100 個名額！畫圖腹＋領服裝</div></div></div><div class="tstep"><div class="tnum">6</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">傍晚</span> 特產市美食攤晚餐</span><span class="tdur">60分</span></div>
+<div class="tdesc">富良野美食想吃什麼自己選</div></div></div><div class="tstep"><div class="tnum">7</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">19:00</span> 北海肚臍舞大會！</span><span class="tdur">60分</span></div>
+<div class="tdesc">跟大家一起扭肚子，跳到 20:00</div></div></div><div class="tstep"><div class="tnum">8</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">20:30</span> 閉幕式（通常有花火）</span><span class="tdur">自由</span></div>
+<div class="tdesc">撐得住就看到 20:55，累了先回 La Vista 也 OK</div></div></div></div></div>
+      <div class="card remind"><h3>⚠️ 小提醒</h3><ul class="remind"><li>花田很曬：帽子、防曬、水壺！</li><li>15:00 報名要準時，額滿就不能跳了</li><li>帶濕紙巾，跳完擦顏料用得到</li><li>晚上山區涼，外套帶著</li><li>撐不到閉幕沒關係，跳完舞就是完整參加了！</li></ul></div>
+    </div>
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 隊長推薦（今天的亮點！）</h3><div class="pick"><div class="prow"><span class="picon">💜</span><span class="ptag">上午</span><span class="pname">富田農場</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>7 月下旬薰衣草開得最美，一整片紫色的海</li><li>彩虹花田像大地的彩色棉被</li><li>薰衣草霜淇淋＋哈密瓜都吃得到</li></ul><div class="ptip">💡 早點去，人少花美天氣涼</div></div><div class="pick"><div class="prow"><span class="picon">🎨</span><span class="ptag">下午</span><span class="pname">圖腹初體驗！</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>工作人員幫你把肚子畫成一張大臉</li><li>服裝組 ¥3,500（衣服可以帶回家當紀念）</li><li>怕癢的小朋友可以穿圖腹 T恤參加</li></ul><div class="ptip">💡 15:00 準時去排隊，名額只有 100 個！</div></div><div class="pick"><div class="prow"><span class="picon">💦</span><span class="ptag">下午</span><span class="pname">水遊び縁日</span></div>
+<div class="pstars">推薦度 ★★★★☆</div><ul class="ppt"><li>祭典會場的小朋友玩水區</li><li>還有噴泡泡的人力車！</li></ul><div class="ptip">💡 14:30 就結束，要先玩再報名</div></div></div>
+      <div class="card hotel"><h3>🛏 今天晚上住這裡！</h3><div class="hname">La Vista Furano Hills（第 2 晚）</div><ul><li>跳完舞回來泡溫泉最舒服</li><li>明天睡飽一點再出發</li></ul></div>
+    </div>
+    <div>
+      <div class="card story"><h3>🔍 小小探險家百科</h3><p><b>🌏 探險故事：</b>富良野有一塊「北海道中心標」石碑，證明這裡就是北海道的正中間——身體的正中間是什麼？是肚臍！所以富良野人從 50 多年前開始辦肚臍祭：把肚子畫成一張大臉，戴上大草帽把頭藏起來，肚子一扭，臉就跟著笑。今天換我們把肚子變成臉，一起加入！</p></div>
+      <div class="card mama"><h3>🐧 貓咪隊長小教室</h3><ul class="bigclass"><li>薰衣草 7 月中到下旬開得最美，香香的味道會讓人放鬆想睡覺</li><li>哈密瓜越香就越熟越甜，是太陽幫它加了糖</li><li>「圖腹」就是把肚子當成臉：肚臍是嘴巴，畫上眼睛，再用大傘把頭遮住</li><li>肚臍舞的歌叫「北海へそ音頭」，聽到「はっ！」就要用力扭一下</li><li>青池的水藍藍的，是因為水裡有很細很細的白色礦物粉，把太陽的藍色反射給我們看</li><li>蜜蜂會跳 8 字舞告訴朋友花在哪裡——花田裡找找看牠們在上班</li></ul></div>
+      <div class="card find"><h3>🔭 今天一起找找看！</h3><div>☐ 青池的藍像什麼飲料的顏色？</div><div>☐ 薰衣草田是什麼紫？聞起來像什麼？</div><div>☐ 我們的圖腹畫了什麼臉？</div><div>☐ 誰的肚子臉扭得最好笑？</div><div>☐ 有沒有撐到最後看到花火？</div></div>
+    </div>
+  </div>
+  <div class="freezone">
+    <div class="fz-head"><h3>🐧 小貓咪的自由創作區</h3><span class="fz-sub">今天的照片、今天說了什麼、畫畫塗鴉……想放什麼都可以！</span></div>
+    <span class="fz-flake f1">🐾</span><span class="fz-flake f2">🐾</span>
+  </div>
+  <div class="foot">🐾　貓咪探險隊守則：照顧自己，保護彼此，一起享受每一次的冒險！　🐾</div>
+</div></body></html>

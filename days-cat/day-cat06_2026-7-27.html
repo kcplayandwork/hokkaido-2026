@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 6｜阿寒湖 → 旭川 開車日</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap');
+:root{
+  --green:#4c5f3d; --green2:#6b7d52; --cream:#f4efdf; --paper:#fffdf4;
+  --orange:#e08a3c; --coral:#d96c4f; --sky:#7da7c4; --brown:#8a6d4b;
+  --ink:#3d3a30; --ink2:#6f6a5a; --line:#e3dcc4; --pink:#e8a7a0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#d8d2bd;font-family:'Zen Maru Gothic','Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--ink);
+display:flex;justify-content:center;padding:20px}
+.page{width:794px;min-height:1123px;background:var(--cream);position:relative;display:flex;flex-direction:column;
+padding:14px 16px 46px;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+@media print{
+  body{background:none;padding:0}
+  .page{box-shadow:none;width:210mm;min-height:297mm}
+  @page{size:A4 portrait;margin:0}
+}
+/* ---------- header ---------- */
+.hd{display:flex;gap:12px;align-items:stretch;margin-bottom:10px}
+.ribbon{background:var(--green);color:#fff;width:96px;flex:none;text-align:center;
+padding:10px 6px 14px;border-radius:0 0 14px 14px;position:relative}
+.ribbon .d{font-size:12px;letter-spacing:2px;font-weight:700}
+.ribbon .n{font-size:52px;font-weight:900;line-height:1.05}
+.ribbon .dt{font-size:11px;background:rgba(255,255,255,.15);border-radius:8px;padding:2px 4px;margin-top:4px;display:inline-block}
+.hd-mid{flex:1;padding-top:2px}
+.brand{font-size:12px;color:var(--green);font-weight:700;letter-spacing:1px}
+.title{font-size:34px;font-weight:900;color:#33301f;line-height:1.15;margin:2px 0}
+.subtitle{font-size:13px;color:var(--ink2);font-weight:700}
+.badge{display:inline-block;background:var(--coral);color:#fff;font-size:12px;font-weight:700;
+border-radius:16px;padding:3px 12px;margin-top:6px}
+.tasks{flex:none;width:230px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:8px 10px}
+.tasks h3{font-size:13px;color:var(--green);margin-bottom:4px}
+.tasks div{font-size:11.5px;font-weight:700;padding:1.5px 0}
+.cat{flex:none;width:74px;text-align:center;font-size:46px;line-height:1;padding-top:6px}
+.cat span{display:block;font-size:10.5px;font-weight:900;color:var(--coral);border:1.5px dashed var(--coral);
+border-radius:12px;padding:2px 4px;margin-bottom:6px;background:#fff}
+/* ---------- grid ---------- */
+.grid{display:grid;grid-template-columns:1.02fr 1.1fr .98fr;gap:10px}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:10px 11px;margin-bottom:10px}
+.card h3{font-size:13.5px;color:var(--green);margin-bottom:7px}
+.card h3 .paw{color:var(--orange)}
+/* timeline */
+.tl{position:relative}
+.tstep{display:flex;gap:8px;margin-bottom:9px;position:relative}
+.tstep:not(:last-child):before{content:"";position:absolute;left:10px;top:22px;bottom:-9px;border-left:2px dotted var(--green2)}
+.tnum{flex:none;width:21px;height:21px;border-radius:50%;background:var(--green);color:#fff;
+font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:1}
+.tbody{flex:1}
+.trow1{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.ttime{font-size:11px;font-weight:900;color:var(--coral)}
+.tname{font-size:12.5px;font-weight:900}
+.tdur{font-size:10px;color:var(--orange);font-weight:700;white-space:nowrap}
+.tdesc{font-size:10.5px;color:var(--ink2);line-height:1.45}
+/* picks */
+.pick{border:1.5px solid var(--line);border-radius:12px;padding:8px 9px;margin-bottom:8px;background:#fff}
+.pick:last-child{margin-bottom:0}
+.prow{display:flex;align-items:center;gap:7px}
+.ptag{flex:none;background:var(--orange);color:#fff;font-size:10px;font-weight:900;border-radius:6px;padding:2px 6px}
+.pname{font-size:13px;font-weight:900}
+.pstars{font-size:11px;color:var(--orange);margin:1px 0 3px 0;font-weight:700}
+.picon{font-size:20px;line-height:1}
+.ppt{font-size:11px;line-height:1.5}
+.ppt li{margin-left:15px}
+.ptip{margin-top:5px;background:#d8d2bd;border:1px dashed var(--orange);border-radius:8px;
+padding:3px 7px;font-size:10.5px;color:#8a5a13;font-weight:700}
+/* right column blocks */
+.story p,.know p{font-size:11.5px;line-height:1.65}
+.find div{font-size:11.5px;font-weight:700;padding:2px 0 2px 18px;text-indent:-18px}
+.photos{display:flex;gap:6px}
+.ph{flex:1;height:64px;background:#fff;border:1.5px dashed #d8cfae;border-radius:8px;position:relative}
+.ph:before{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(-2deg);
+width:34px;height:10px;background:repeating-linear-gradient(45deg,#bcd4bc,#bcd4bc 3px,#d6e6d6 3px,#d6e6d6 6px);opacity:.9;border-radius:2px}
+.say div{border-bottom:1.5px dashed #d8cfae;height:20px}
+/* hotel */
+.hotel{background:#d8d2bd;border:1.5px solid #d8cfae}
+.hotel .hname{font-size:14px;font-weight:900;color:var(--green);margin-bottom:3px}
+.hotel li{font-size:11px;margin-left:15px;line-height:1.55}
+/* reminders */
+.remind li{font-size:11px;margin-left:15px;line-height:1.6}
+.remind{background:#d8d2bd;border-color:#d8cfae}
+.remind h3{color:#8a5a13}
+/* footer */
+
+/* free-draw zone */
+.freezone{flex:1;min-height:160px;margin-top:2px;background:var(--paper);
+border:2.5px dashed #d8cfae;border-radius:16px;padding:10px 14px;position:relative;overflow:hidden}
+.fz-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.freezone h3{font-size:14px;color:var(--green)}
+.fz-sub{font-size:11px;color:var(--ink2);font-weight:700}
+.fz-flake{position:absolute;opacity:.35;font-size:15px}
+.f1{top:12px;right:118px}.f2{bottom:14px;left:14px}
+.fz-peng{position:absolute;right:12px;bottom:6px;width:72px;opacity:.9}
+.fz-peng svg{width:100%;height:auto}
+.cat .peng{width:70px;height:auto}
+
+/* equal-height columns: middle band is one solid block */
+.grid>div{display:flex;flex-direction:column}
+.grid>div>.card{margin-bottom:10px;flex:0 0 auto}
+.grid>div>.card:last-child{flex:1 0 auto;margin-bottom:0}
+.freezone{margin-top:10px}
+.mama{background:#d8d2bd;border-color:#d8cfae}
+.mama li{font-size:11px;margin-left:15px;line-height:1.62}
+.cat{width:86px;font-size:44px;text-align:center;line-height:1.15}
+.cat .peng{width:112px;height:auto}
+
+.cat .logo{width:118px;height:auto}
+
+.nature{background:#F9F7F7}
+.nature li{font-size:11px;margin-left:15px;line-height:1.62}
+
+.bigclass li{font-size:11.5px;margin-left:15px;line-height:1.7;padding:1px 0}
+.foot{position:absolute;left:0;right:0;bottom:0;background:var(--green);color:#fff;
+text-align:center;font-size:12px;font-weight:900;padding:7px;letter-spacing:1px}
+</style></head><body>
+<div class="page">
+  <div class="hd">
+    <div class="ribbon"><div class="d">DAY 6</div><div class="n">6</div><div class="dt">2026/7/27（一）</div></div>
+    <div class="hd-mid">
+      <div class="brand">🐾 貓咪探險隊 CAT EXPEDITION TEAM</div>
+      <div class="title">阿寒湖 → 旭川 開車日 🐾</div>
+      <div class="subtitle">早上看球藻，路上狐狸村或木頭玩具館二選一！</div>
+      <div class="badge">今天是坐車唱歌日！　🐾</div>
+    </div>
+    <div class="tasks"><h3>❄️ 今天的任務</h3><div>☑ 跟球藻說早安</div><div>☑ 兩隊投票：狐狸 🦊 還是玩具 🧸？</div><div>☑ 坐車唱歌不吵架</div><div>☑ 抵達旭川</div></div>
+    <div class="cat"><span>探險出發！</span>🐱🎒</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 我們今天的路線</h3><div class="tl"><div class="tstep"><div class="tnum">1</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">上午</span> 阿寒湖看球藻（二選一）</span><span class="tdur">彈性</span></div>
+<div class="tdesc">A. 觀光船 85 分鐘，上島看球藻觀察中心　B. 湖畔生態館＋Bokke 步道散步 30 分</div></div></div><div class="tstep"><div class="tnum">2</div><div class="tbody">
+<div class="trow1"><span class="tname">出發！往北見方向</span><span class="tdur">🚗</span></div>
+<div class="tdesc">今天總共要開約 4 小時，準備點心和音樂</div></div></div><div class="tstep"><div class="tnum">3</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">路線A</span> 北見狐狸牧場 🦊</span><span class="tdur">40分</span></div>
+<div class="tdesc">60 多隻狐狸放養！沿步道找狐狸（只能看不能摸）</div></div></div><div class="tstep"><div class="tnum">4</div><div class="tbody">
+<div class="trow1"><span class="tname">→ 層雲峽休息</span><span class="tdur">30分</span></div>
+<div class="tdesc">路線 A 剛好經過：看銀河・流星瀑布、伸展一下</div></div></div><div class="tstep"><div class="tnum">5</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">路線B</span> ちゃちゃワールド 🧸</span><span class="tdur">90分</span></div>
+<div class="tdesc">世界 40 國、一萬件木頭玩具，有得看又有得玩！</div></div></div><div class="tstep"><div class="tnum">6</div><div class="tbody">
+<div class="trow1"><span class="tname">→ 走免費高速往旭川</span><span class="tdur">🛣</span></div>
+<div class="tdesc">路線 B 在道之駅遠軽休息就好</div></div></div><div class="tstep"><div class="tnum">7</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">傍晚</span> 抵達旭川！</span><span class="tdur">🏨</span></div>
+<div class="tdesc">入住飯店，附近吃晚餐，早點睡——明天看企鵝！</div></div></div></div></div>
+      <div class="card remind"><h3>⚠️ 小提醒</h3><ul class="remind"><li>狐狸村和玩具館二選一就好，不要貪心都去</li><li>今天坐車最久，準備小點心、音樂和小遊戲</li><li>休息站記得上廁所、下車動一動</li><li>狐狸只能看不能摸，牠們很害羞</li></ul></div>
+    </div>
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 隊長推薦（今天的亮點！）</h3><div class="pick"><div class="prow"><span class="picon">🦊</span><span class="ptag">路線A</span><span class="pname">北見狐狸牧場</span></div>
+<div class="pstars">推薦度 ★★★★☆</div><ul class="ppt"><li>狐狸夏天換上苗條的夏日毛衣</li><li>躲在水泥管裡睡覺，聽到腳步聲會探頭</li><li>旁邊還有小而精彩的「山之水族館」</li></ul><div class="ptip">💡 東西收好！狐狸會叼走帽子手套</div></div><div class="pick"><div class="prow"><span class="picon">🧸</span><span class="ptag">路線B</span><span class="pname">ちゃちゃワールド</span></div>
+<div class="pstars">推薦度 ★★★★☆</div><ul class="ppt"><li>兩公尺高的巨大胡桃鉗人偶迎接你</li><li>積木、陀螺、機關玩具通通可以動手玩</li><li>下雨也不怕的室內樂園</li></ul><div class="ptip">💡 夏天館內比較熱，多喝水</div></div><div class="pick"><div class="prow"><span class="picon">🟢</span><span class="ptag">上午</span><span class="pname">阿寒湖球藻</span></div>
+<div class="pstars">推薦度 ★★★★☆</div><ul class="ppt"><li>圓滾滾的綠色毛球，是活的藻類！</li><li>搭船上島可以看到超大顆的</li></ul><div class="ptip">💡 輕輕看，不能摸湖裡的球藻</div></div></div>
+      <div class="card hotel"><h3>🛏 今天晚上住這裡！</h3><div class="hname">旭川的飯店（OMO7 或 Dormy Inn）</div><ul><li>市區的飯店，吃飯很方便</li><li>好好睡一覺，明天看動物！</li></ul></div>
+    </div>
+    <div>
+      <div class="card story"><h3>🔍 小小探險家百科</h3><p><b>🌏 探險故事：</b>今天要從東邊的大森林，一路開到北海道中間的旭川。路上會經過狐狸的家鄉——北海道的公路旁常常有「小心狐狸」的牌子，因為狐狸喜歡在路邊散步。日本人相信狐狸是神的使者，會保佑豐收，所以很多神社裡都有狐狸的雕像喔！</p></div>
+      <div class="card mama"><h3>🐧 貓咪隊長小教室</h3><ul class="bigclass"><li>狐狸的耳朵超級靈，連雪底下老鼠的腳步聲都聽得到</li><li>狐狸的大尾巴冬天可以當棉被，把自己捲起來蓋住鼻子睡覺</li><li>日本人相信狐狸是神的使者，神社裡常常有狐狸雕像</li><li>球藻在湖底滾呀滾才滾成圓球，長到拳頭大要好幾十年！</li><li>湖水要很乾淨很乾淨，球藻才願意住下來</li><li>層雲峽的大石壁是火山噴發後冷卻變成的，像大自然蓋的城牆</li></ul></div>
+      <div class="card find"><h3>🔭 今天一起找找看！</h3><div>☐ 今天路上看到幾個「小心動物」的牌子？</div><div>☐ 狐狸睡覺是什麼姿勢？／最喜歡哪個木頭玩具？</div><div>☐ 球藻有多大顆？</div><div>☐ 誰先看到旭川的牌子？</div></div>
+    </div>
+  </div>
+  <div class="freezone">
+    <div class="fz-head"><h3>🐧 小貓咪的自由創作區</h3><span class="fz-sub">今天的照片、今天說了什麼、畫畫塗鴉……想放什麼都可以！</span></div>
+    <span class="fz-flake f1">🐾</span><span class="fz-flake f2">🐾</span>
+  </div>
+  <div class="foot">🐾　貓咪探險隊守則：照顧自己，保護彼此，一起享受每一次的冒險！　🐾</div>
+</div></body></html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 10｜鈴蘭公園 ＆ 豐平川花火</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap');
+:root{
+  --green:#4c5f3d; --green2:#6b7d52; --cream:#f4efdf; --paper:#fffdf4;
+  --orange:#e08a3c; --coral:#d96c4f; --sky:#7da7c4; --brown:#8a6d4b;
+  --ink:#3d3a30; --ink2:#6f6a5a; --line:#e3dcc4; --pink:#e8a7a0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#d8d2bd;font-family:'Zen Maru Gothic','Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--ink);
+display:flex;justify-content:center;padding:20px}
+.page{width:794px;min-height:1123px;background:var(--cream);position:relative;display:flex;flex-direction:column;
+padding:14px 16px 46px;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+@media print{
+  body{background:none;padding:0}
+  .page{box-shadow:none;width:210mm;min-height:297mm}
+  @page{size:A4 portrait;margin:0}
+}
+/* ---------- header ---------- */
+.hd{display:flex;gap:12px;align-items:stretch;margin-bottom:10px}
+.ribbon{background:var(--green);color:#fff;width:96px;flex:none;text-align:center;
+padding:10px 6px 14px;border-radius:0 0 14px 14px;position:relative}
+.ribbon .d{font-size:12px;letter-spacing:2px;font-weight:700}
+.ribbon .n{font-size:52px;font-weight:900;line-height:1.05}
+.ribbon .dt{font-size:11px;background:rgba(255,255,255,.15);border-radius:8px;padding:2px 4px;margin-top:4px;display:inline-block}
+.hd-mid{flex:1;padding-top:2px}
+.brand{font-size:12px;color:var(--green);font-weight:700;letter-spacing:1px}
+.title{font-size:34px;font-weight:900;color:#33301f;line-height:1.15;margin:2px 0}
+.subtitle{font-size:13px;color:var(--ink2);font-weight:700}
+.badge{display:inline-block;background:var(--coral);color:#fff;font-size:12px;font-weight:700;
+border-radius:16px;padding:3px 12px;margin-top:6px}
+.tasks{flex:none;width:230px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:8px 10px}
+.tasks h3{font-size:13px;color:var(--green);margin-bottom:4px}
+.tasks div{font-size:11.5px;font-weight:700;padding:1.5px 0}
+.cat{flex:none;width:74px;text-align:center;font-size:46px;line-height:1;padding-top:6px}
+.cat span{display:block;font-size:10.5px;font-weight:900;color:var(--coral);border:1.5px dashed var(--coral);
+border-radius:12px;padding:2px 4px;margin-bottom:6px;background:#fff}
+/* ---------- grid ---------- */
+.grid{display:grid;grid-template-columns:1.02fr 1.1fr .98fr;gap:10px}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:10px 11px;margin-bottom:10px}
+.card h3{font-size:13.5px;color:var(--green);margin-bottom:7px}
+.card h3 .paw{color:var(--orange)}
+/* timeline */
+.tl{position:relative}
+.tstep{display:flex;gap:8px;margin-bottom:9px;position:relative}
+.tstep:not(:last-child):before{content:"";position:absolute;left:10px;top:22px;bottom:-9px;border-left:2px dotted var(--green2)}
+.tnum{flex:none;width:21px;height:21px;border-radius:50%;background:var(--green);color:#fff;
+font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:1}
+.tbody{flex:1}
+.trow1{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.ttime{font-size:11px;font-weight:900;color:var(--coral)}
+.tname{font-size:12.5px;font-weight:900}
+.tdur{font-size:10px;color:var(--orange);font-weight:700;white-space:nowrap}
+.tdesc{font-size:10.5px;color:var(--ink2);line-height:1.45}
+/* picks */
+.pick{border:1.5px solid var(--line);border-radius:12px;padding:8px 9px;margin-bottom:8px;background:#fff}
+.pick:last-child{margin-bottom:0}
+.prow{display:flex;align-items:center;gap:7px}
+.ptag{flex:none;background:var(--orange);color:#fff;font-size:10px;font-weight:900;border-radius:6px;padding:2px 6px}
+.pname{font-size:13px;font-weight:900}
+.pstars{font-size:11px;color:var(--orange);margin:1px 0 3px 0;font-weight:700}
+.picon{font-size:20px;line-height:1}
+.ppt{font-size:11px;line-height:1.5}
+.ppt li{margin-left:15px}
+.ptip{margin-top:5px;background:#d8d2bd;border:1px dashed var(--orange);border-radius:8px;
+padding:3px 7px;font-size:10.5px;color:#8a5a13;font-weight:700}
+/* right column blocks */
+.story p,.know p{font-size:11.5px;line-height:1.65}
+.find div{font-size:11.5px;font-weight:700;padding:2px 0 2px 18px;text-indent:-18px}
+.photos{display:flex;gap:6px}
+.ph{flex:1;height:64px;background:#fff;border:1.5px dashed #d8cfae;border-radius:8px;position:relative}
+.ph:before{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(-2deg);
+width:34px;height:10px;background:repeating-linear-gradient(45deg,#bcd4bc,#bcd4bc 3px,#d6e6d6 3px,#d6e6d6 6px);opacity:.9;border-radius:2px}
+.say div{border-bottom:1.5px dashed #d8cfae;height:20px}
+/* hotel */
+.hotel{background:#d8d2bd;border:1.5px solid #d8cfae}
+.hotel .hname{font-size:14px;font-weight:900;color:var(--green);margin-bottom:3px}
+.hotel li{font-size:11px;margin-left:15px;line-height:1.55}
+/* reminders */
+.remind li{font-size:11px;margin-left:15px;line-height:1.6}
+.remind{background:#d8d2bd;border-color:#d8cfae}
+.remind h3{color:#8a5a13}
+/* footer */
+
+/* free-draw zone */
+.freezone{flex:1;min-height:160px;margin-top:2px;background:var(--paper);
+border:2.5px dashed #d8cfae;border-radius:16px;padding:10px 14px;position:relative;overflow:hidden}
+.fz-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.freezone h3{font-size:14px;color:var(--green)}
+.fz-sub{font-size:11px;color:var(--ink2);font-weight:700}
+.fz-flake{position:absolute;opacity:.35;font-size:15px}
+.f1{top:12px;right:118px}.f2{bottom:14px;left:14px}
+.fz-peng{position:absolute;right:12px;bottom:6px;width:72px;opacity:.9}
+.fz-peng svg{width:100%;height:auto}
+.cat .peng{width:70px;height:auto}
+
+/* equal-height columns: middle band is one solid block */
+.grid>div{display:flex;flex-direction:column}
+.grid>div>.card{margin-bottom:10px;flex:0 0 auto}
+.grid>div>.card:last-child{flex:1 0 auto;margin-bottom:0}
+.freezone{margin-top:10px}
+.mama{background:#d8d2bd;border-color:#d8cfae}
+.mama li{font-size:11px;margin-left:15px;line-height:1.62}
+.cat{width:86px;font-size:44px;text-align:center;line-height:1.15}
+.cat .peng{width:112px;height:auto}
+
+.cat .logo{width:118px;height:auto}
+
+.nature{background:#F9F7F7}
+.nature li{font-size:11px;margin-left:15px;line-height:1.62}
+
+.bigclass li{font-size:11.5px;margin-left:15px;line-height:1.7;padding:1px 0}
+.foot{position:absolute;left:0;right:0;bottom:0;background:var(--green);color:#fff;
+text-align:center;font-size:12px;font-weight:900;padding:7px;letter-spacing:1px}
+</style></head><body>
+<div class="page">
+  <div class="hd">
+    <div class="ribbon"><div class="d">DAY 10</div><div class="n">10</div><div class="dt">2026/7/31（五）</div></div>
+    <div class="hd-mid">
+      <div class="brand">🐾 貓咪探險隊 CAT EXPEDITION TEAM</div>
+      <div class="title">鈴蘭公園 ＆ 豐平川花火 🐾</div>
+      <div class="subtitle">早上鑽螞蟻隧道，晚上看旅程的畢業典禮大煙火！</div>
+      <div class="badge">今天玩好玩滿的壓軸日！　🐾</div>
+    </div>
+    <div class="tasks"><h3>❄️ 今天的任務</h3><div>☑ 9:00 衝進鈴蘭公園</div><div>☑ 鑽過螞蟻隧道</div><div>☑ 下午睡午覺儲存體力</div><div>☑ 看豐平川大花火！</div></div>
+    <div class="cat"><span>探險出發！</span>🐱🎒</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 我們今天的路線</h3><div class="tl"><div class="tstep"><div class="tnum">1</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">9:00</span> 瀧野鈴蘭丘陵公園開園進場！</span><span class="tdur">2.5小時</span></div>
+<div class="tdesc">北海道唯一的國營公園：螞蟻之家隧道＋彩色大遊具</div></div></div><div class="tstep"><div class="tnum">2</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">中午</span> 午餐時間</span><span class="tdur">60分</span></div>
+<div class="tdesc">公園裡或回市區吃，味噌拉麵加奶油也可以</div></div></div><div class="tstep"><div class="tnum">3</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">下午</span> 回飯店睡午覺！</span><span class="tdur">💤</span></div>
+<div class="tdesc">早上玩很瘋，午睡儲存體力，晚上是重頭戲</div></div></div><div class="tstep"><div class="tnum">4</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">18:30</span> 前往豐平川河岸佔位</span><span class="tdur">🧺</span></div>
+<div class="tdesc">鋪野餐墊、買點小吃</div></div></div><div class="tstep"><div class="tnum">5</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">19:40</span> 豐平川花火大會！🎇</span><span class="tdur">約60分</span></div>
+<div class="tdesc">札幌夏天最大的花火，旅程的畢業典禮煙火！</div></div></div><div class="tstep"><div class="tnum">6</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">散場</span> 慢慢走回飯店</span><span class="tdur">🌙</span></div>
+<div class="tdesc">人超多不用急，牽緊手邊走邊聊今天的煙火</div></div></div></div></div>
+      <div class="card remind"><h3>⚠️ 小提醒</h3><ul class="remind"><li>鈴蘭會玩到流汗：帶換洗衣物和毛巾</li><li>下午一定要午睡，晚上才有力氣</li><li>帶耳塞（花火聲大）、防蚊液、外套</li><li>散場人潮超多，牽緊手慢慢走</li></ul></div>
+    </div>
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 隊長推薦（今天的亮點！）</h3><div class="pick"><div class="prow"><span class="picon">🐜</span><span class="ptag">上午</span><span class="pname">瀧野鈴蘭丘陵公園</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>鑽進「螞蟻之家」地下隧道探險</li><li>彩色大遊具＋彈跳雲</li><li>早上開園最涼、人最少</li></ul><div class="ptip">💡 會玩到流汗，帶換洗衣物</div></div><div class="pick"><div class="prow"><span class="picon">🎇</span><span class="ptag">夜晚</span><span class="pname">豐平川花火大會</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>札幌夏天最大的花火大會</li><li>跟著音樂一起放的煙火</li><li>旅程的畢業典禮煙火！</li></ul><div class="ptip">💡 提早佔位，野餐墊和外套必備</div></div><div class="pick"><div class="prow"><span class="picon">🍜</span><span class="ptag">午餐</span><span class="pname">味噌拉麵</span></div>
+<div class="pstars">推薦度 ★★★★☆</div><ul class="ppt"><li>札幌是味噌拉麵的故鄉</li><li>加一塊奶油攪一攪超香</li></ul></div></div>
+      <div class="card hotel"><h3>🛏 今天晚上住這裡！</h3><div class="hname">札幌的飯店（連住）</div><ul><li>看完煙火回來就能睡</li><li>明天兩隊行程不一樣囉</li></ul></div>
+    </div>
+    <div>
+      <div class="card story"><h3>🔍 小小探險家百科</h3><p><b>🌏 探險故事：</b>豐平川是流過札幌市中心的大河，河水乾淨到每年秋天都有鮭魚游回來！每年夏天，河岸邊會放上千發煙火，整個城市的人都出來看。今晚的煙火，就是我們大冒險的畢業典禮——想想看，我們看過鯨魚、走過發光的森林、把肚子畫成臉……最後用最大的煙火慶祝！</p></div>
+      <div class="card mama"><h3>🐧 貓咪隊長小教室</h3><ul class="bigclass"><li>煙火師傅要準備好幾個月，才換來這一個晚上的滿天花火</li><li>一次連續放好多發的煙火叫「連發」（starmine），是最熱鬧的部分</li><li>豐平川很乾淨，每年秋天鮭魚會從大海游回來產卵喔</li><li>味噌是黃豆變身的！湯湯麵麵都靠它變好喝</li><li>札幌冬天會辦雪祭，用雪堆出比房子還大的雪雕</li><li>城市晚上燈太亮，星星會害羞躲起來——所以在知床看到的星星最多</li></ul></div>
+      <div class="card find"><h3>🔭 今天一起找找看！</h3><div>☐ 螞蟻隧道通到哪裡？</div><div>☐ 有沒有跟著音樂一起放的煙火？</div><div>☐ 最喜歡哪一種形狀的煙火？</div><div>☐ 這趟旅行最好玩的是哪一天？</div></div>
+    </div>
+  </div>
+  <div class="freezone">
+    <div class="fz-head"><h3>🐧 小貓咪的自由創作區</h3><span class="fz-sub">今天的照片、今天說了什麼、畫畫塗鴉……想放什麼都可以！</span></div>
+    <span class="fz-flake f1">🐾</span><span class="fz-flake f2">🐾</span>
+  </div>
+  <div class="foot">🐾　貓咪探險隊守則：照顧自己，保護彼此，一起享受每一次的冒險！　🐾</div>
+</div></body></html>

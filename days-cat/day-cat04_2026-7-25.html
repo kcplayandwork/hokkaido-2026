@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 4｜知床 → 網走 花火之夜</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap');
+:root{
+  --green:#4c5f3d; --green2:#6b7d52; --cream:#f4efdf; --paper:#fffdf4;
+  --orange:#e08a3c; --coral:#d96c4f; --sky:#7da7c4; --brown:#8a6d4b;
+  --ink:#3d3a30; --ink2:#6f6a5a; --line:#e3dcc4; --pink:#e8a7a0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#d8d2bd;font-family:'Zen Maru Gothic','Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--ink);
+display:flex;justify-content:center;padding:20px}
+.page{width:794px;min-height:1123px;background:var(--cream);position:relative;display:flex;flex-direction:column;
+padding:14px 16px 46px;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+@media print{
+  body{background:none;padding:0}
+  .page{box-shadow:none;width:210mm;min-height:297mm}
+  @page{size:A4 portrait;margin:0}
+}
+/* ---------- header ---------- */
+.hd{display:flex;gap:12px;align-items:stretch;margin-bottom:10px}
+.ribbon{background:var(--green);color:#fff;width:96px;flex:none;text-align:center;
+padding:10px 6px 14px;border-radius:0 0 14px 14px;position:relative}
+.ribbon .d{font-size:12px;letter-spacing:2px;font-weight:700}
+.ribbon .n{font-size:52px;font-weight:900;line-height:1.05}
+.ribbon .dt{font-size:11px;background:rgba(255,255,255,.15);border-radius:8px;padding:2px 4px;margin-top:4px;display:inline-block}
+.hd-mid{flex:1;padding-top:2px}
+.brand{font-size:12px;color:var(--green);font-weight:700;letter-spacing:1px}
+.title{font-size:34px;font-weight:900;color:#33301f;line-height:1.15;margin:2px 0}
+.subtitle{font-size:13px;color:var(--ink2);font-weight:700}
+.badge{display:inline-block;background:var(--coral);color:#fff;font-size:12px;font-weight:700;
+border-radius:16px;padding:3px 12px;margin-top:6px}
+.tasks{flex:none;width:230px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:8px 10px}
+.tasks h3{font-size:13px;color:var(--green);margin-bottom:4px}
+.tasks div{font-size:11.5px;font-weight:700;padding:1.5px 0}
+.cat{flex:none;width:74px;text-align:center;font-size:46px;line-height:1;padding-top:6px}
+.cat span{display:block;font-size:10.5px;font-weight:900;color:var(--coral);border:1.5px dashed var(--coral);
+border-radius:12px;padding:2px 4px;margin-bottom:6px;background:#fff}
+/* ---------- grid ---------- */
+.grid{display:grid;grid-template-columns:1.02fr 1.1fr .98fr;gap:10px}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:10px 11px;margin-bottom:10px}
+.card h3{font-size:13.5px;color:var(--green);margin-bottom:7px}
+.card h3 .paw{color:var(--orange)}
+/* timeline */
+.tl{position:relative}
+.tstep{display:flex;gap:8px;margin-bottom:9px;position:relative}
+.tstep:not(:last-child):before{content:"";position:absolute;left:10px;top:22px;bottom:-9px;border-left:2px dotted var(--green2)}
+.tnum{flex:none;width:21px;height:21px;border-radius:50%;background:var(--green);color:#fff;
+font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:1}
+.tbody{flex:1}
+.trow1{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.ttime{font-size:11px;font-weight:900;color:var(--coral)}
+.tname{font-size:12.5px;font-weight:900}
+.tdur{font-size:10px;color:var(--orange);font-weight:700;white-space:nowrap}
+.tdesc{font-size:10.5px;color:var(--ink2);line-height:1.45}
+/* picks */
+.pick{border:1.5px solid var(--line);border-radius:12px;padding:8px 9px;margin-bottom:8px;background:#fff}
+.pick:last-child{margin-bottom:0}
+.prow{display:flex;align-items:center;gap:7px}
+.ptag{flex:none;background:var(--orange);color:#fff;font-size:10px;font-weight:900;border-radius:6px;padding:2px 6px}
+.pname{font-size:13px;font-weight:900}
+.pstars{font-size:11px;color:var(--orange);margin:1px 0 3px 0;font-weight:700}
+.picon{font-size:20px;line-height:1}
+.ppt{font-size:11px;line-height:1.5}
+.ppt li{margin-left:15px}
+.ptip{margin-top:5px;background:#d8d2bd;border:1px dashed var(--orange);border-radius:8px;
+padding:3px 7px;font-size:10.5px;color:#8a5a13;font-weight:700}
+/* right column blocks */
+.story p,.know p{font-size:11.5px;line-height:1.65}
+.find div{font-size:11.5px;font-weight:700;padding:2px 0 2px 18px;text-indent:-18px}
+.photos{display:flex;gap:6px}
+.ph{flex:1;height:64px;background:#fff;border:1.5px dashed #d8cfae;border-radius:8px;position:relative}
+.ph:before{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(-2deg);
+width:34px;height:10px;background:repeating-linear-gradient(45deg,#bcd4bc,#bcd4bc 3px,#d6e6d6 3px,#d6e6d6 6px);opacity:.9;border-radius:2px}
+.say div{border-bottom:1.5px dashed #d8cfae;height:20px}
+/* hotel */
+.hotel{background:#d8d2bd;border:1.5px solid #d8cfae}
+.hotel .hname{font-size:14px;font-weight:900;color:var(--green);margin-bottom:3px}
+.hotel li{font-size:11px;margin-left:15px;line-height:1.55}
+/* reminders */
+.remind li{font-size:11px;margin-left:15px;line-height:1.6}
+.remind{background:#d8d2bd;border-color:#d8cfae}
+.remind h3{color:#8a5a13}
+/* footer */
+
+/* free-draw zone */
+.freezone{flex:1;min-height:160px;margin-top:2px;background:var(--paper);
+border:2.5px dashed #d8cfae;border-radius:16px;padding:10px 14px;position:relative;overflow:hidden}
+.fz-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.freezone h3{font-size:14px;color:var(--green)}
+.fz-sub{font-size:11px;color:var(--ink2);font-weight:700}
+.fz-flake{position:absolute;opacity:.35;font-size:15px}
+.f1{top:12px;right:118px}.f2{bottom:14px;left:14px}
+.fz-peng{position:absolute;right:12px;bottom:6px;width:72px;opacity:.9}
+.fz-peng svg{width:100%;height:auto}
+.cat .peng{width:70px;height:auto}
+
+/* equal-height columns: middle band is one solid block */
+.grid>div{display:flex;flex-direction:column}
+.grid>div>.card{margin-bottom:10px;flex:0 0 auto}
+.grid>div>.card:last-child{flex:1 0 auto;margin-bottom:0}
+.freezone{margin-top:10px}
+.mama{background:#d8d2bd;border-color:#d8cfae}
+.mama li{font-size:11px;margin-left:15px;line-height:1.62}
+.cat{width:86px;font-size:44px;text-align:center;line-height:1.15}
+.cat .peng{width:112px;height:auto}
+
+.cat .logo{width:118px;height:auto}
+
+.nature{background:#F9F7F7}
+.nature li{font-size:11px;margin-left:15px;line-height:1.62}
+
+.bigclass li{font-size:11.5px;margin-left:15px;line-height:1.7;padding:1px 0}
+.foot{position:absolute;left:0;right:0;bottom:0;background:var(--green);color:#fff;
+text-align:center;font-size:12px;font-weight:900;padding:7px;letter-spacing:1px}
+</style></head><body>
+<div class="page">
+  <div class="hd">
+    <div class="ribbon"><div class="d">DAY 4</div><div class="n">4</div><div class="dt">2026/7/25（六）</div></div>
+    <div class="hd-mid">
+      <div class="brand">🐾 貓咪探險隊 CAT EXPEDITION TEAM</div>
+      <div class="title">知床 → 網走 花火之夜 🐾</div>
+      <div class="subtitle">白天玩超大公園，晚上逛夜市看 12,000 發花火！</div>
+      <div class="badge">今晚天空會開花！　🐾</div>
+    </div>
+    <div class="tasks"><h3>❄️ 今天的任務</h3><div>☑ 跟知床說掰掰</div><div>☑ 征服大鳥巢和 50 公尺溜滑梯</div><div>☑ 逛夜市吃晚餐</div><div>☑ 看網走花火大會</div><div>☑ 回飯店吃宵夜拉麵＋冰棒！</div></div>
+    <div class="cat"><span>探險出發！</span>🐱🎒</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 我們今天的路線</h3><div class="tl"><div class="tstep"><div class="tnum">1</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">上午</span> 知床半島最後巡禮</span><span class="tdur">彈性</span></div>
+<div class="tdesc">再逛逛知床，跟大森林說再見</div></div></div><div class="tstep"><div class="tnum">2</div><div class="tbody">
+<div class="trow1"><span class="tname">開車前往網走</span><span class="tdur">約2小時</span></div>
+<div class="tdesc">沿著鄂霍次克海邊開，約 2 小時</div></div></div><div class="tstep"><div class="tnum">3</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">下午</span> 道立鄂霍次克公園「天都樂園」</span><span class="tdur">2小時</span></div>
+<div class="tdesc">超大冒險森林：大鳥巢、長溜滑梯、彈跳床！</div></div></div><div class="tstep"><div class="tnum">4</div><div class="tbody">
+<div class="trow1"><span class="tname">Dormy Inn 放行李</span><span class="tdur">🏨</span></div>
+<div class="tdesc">先進飯店放東西，輕鬆去看花火</div></div></div><div class="tstep"><div class="tnum">5</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">傍晚</span> 道之駅夜市晚餐！</span><span class="tdur">60分</span></div>
+<div class="tdesc">花火美食攤：想吃什麼自己選</div></div></div><div class="tstep"><div class="tnum">6</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">20:00</span> 網走花火大會！🎆</span><span class="tdur">45分</span></div>
+<div class="tdesc">12,000 發在海上的帽子岩旁開花，20:45 結束</div></div></div><div class="tstep"><div class="tnum">7</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">晚上</span> 回飯店三連發！</span><span class="tdur">♨️🍜🍦</span></div>
+<div class="tdesc">泡溫泉 → 免費宵夜拉麵 → 冰棒，太幸福啦</div></div></div></div></div>
+      <div class="card remind"><h3>⚠️ 小提醒</h3><ul class="remind"><li>公園會玩到全身汗，帶換洗衣物</li><li>看花火的人很多（約五萬人！），手牽好、約定走散集合點</li><li>海邊晚上風大，外套帶著</li><li>提早去道之駅附近佔位子</li></ul></div>
+    </div>
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 隊長推薦（今天的亮點！）</h3><div class="pick"><div class="prow"><span class="picon">🛝</span><span class="ptag">下午</span><span class="pname">天都樂園冒險森林</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>黑紅色的超大鳥巢，爬到最上面再溜下來</li><li>15 公尺高、50 公尺長的滾輪溜滑梯！</li><li>白色彈跳床＋繞一圈回來的滑軌</li><li>下雨也不怕：室內有球池和軟墊跑道</li></ul><div class="ptip">💡 會玩到流汗，帶一套換的衣服</div></div><div class="pick"><div class="prow"><span class="picon">🎆</span><span class="ptag">夜晚</span><span class="pname">網走花火大會</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>12,000 發！還有跟著音樂跳舞的音樂煙火</li><li>超大的「二尺玉」在天上開超大的花</li><li>在道之駅附近看，對面就是帽子岩</li></ul><div class="ptip">💡 海邊風大，外套一定要帶！</div></div><div class="pick"><div class="prow"><span class="picon">🍜</span><span class="ptag">宵夜</span><span class="pname">Dormy Inn 幸福三連發</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>溫泉大浴場泡暖暖</li><li>晚上有免費的「夜鳴拉麵」當宵夜！</li><li>泡完湯還有免費冰棒可以拿</li></ul><div class="ptip">💡 看完花火回來剛剛好！</div></div></div>
+      <div class="card hotel"><h3>🛏 今天晚上住這裡！</h3><div class="hname">Dormy Inn 網走</div><ul><li>有天然溫泉大浴場</li><li>晚上有免費宵夜「夜鳴拉麵」🍜</li><li>泡完湯還有免費冰棒 🍦</li></ul></div>
+    </div>
+    <div>
+      <div class="card story"><h3>🔍 小小探險家百科</h3><p><b>🌏 探險故事：</b>網走的夏祭已經辦到第 78 屆了！從阿公的阿公那時候就開始辦。壓軸就是今晚的花火大會——煙火在海上一顆長得像帽子的大石頭「帽子岩」旁邊開花，全城的人都會出來看，是網走一年最熱鬧的一夜！</p></div>
+      <div class="card mama"><h3>🐧 貓咪隊長小教室</h3><ul class="bigclass"><li>為什麼先看到煙火才聽到「砰」？因為光跑得比聲音快，聲音慢吞吞在後面追</li><li>最大的「二尺玉」煙火，在天上開的花比好幾棟大樓還寬！</li><li>煙火的顏色是不同金屬粉變的魔法：紅、綠、藍、金都是不一樣的配方</li><li>海上那顆大石頭叫「帽子岩」，因為長得像一頂帽子浮在海上</li><li>鄂霍次克海冬天會漂來白白的流冰，流冰上還會有海豹寶寶出生</li><li>公園的滑軌像小火車軌道，咻——繞一圈又回到原點！</li></ul></div>
+      <div class="card find"><h3>🔭 今天一起找找看！</h3><div>☐ 大鳥巢爬到最上面看到什麼？</div><div>☐ 滑軌繞一圈要幾秒？</div><div>☐ 有沒有聽到跟音樂一起放的煙火？</div><div>☐ 找到海上的帽子岩了嗎？</div><div>☐ 冰棒是什麼口味？</div></div>
+    </div>
+  </div>
+  <div class="freezone">
+    <div class="fz-head"><h3>🐧 小貓咪的自由創作區</h3><span class="fz-sub">今天的照片、今天說了什麼、畫畫塗鴉……想放什麼都可以！</span></div>
+    <span class="fz-flake f1">🐾</span><span class="fz-flake f2">🐾</span>
+  </div>
+  <div class="foot">🐾　貓咪探險隊守則：照顧自己，保護彼此，一起享受每一次的冒險！　🐾</div>
+</div></body></html>

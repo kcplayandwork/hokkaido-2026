@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 5｜採櫻桃 → 阿寒湖 森林夜行</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap');
+:root{
+  --green:#4c5f3d; --green2:#6b7d52; --cream:#f4efdf; --paper:#fffdf4;
+  --orange:#e08a3c; --coral:#d96c4f; --sky:#7da7c4; --brown:#8a6d4b;
+  --ink:#3d3a30; --ink2:#6f6a5a; --line:#e3dcc4; --pink:#e8a7a0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#d8d2bd;font-family:'Zen Maru Gothic','Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--ink);
+display:flex;justify-content:center;padding:20px}
+.page{width:794px;min-height:1123px;background:var(--cream);position:relative;display:flex;flex-direction:column;
+padding:14px 16px 46px;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+@media print{
+  body{background:none;padding:0}
+  .page{box-shadow:none;width:210mm;min-height:297mm}
+  @page{size:A4 portrait;margin:0}
+}
+/* ---------- header ---------- */
+.hd{display:flex;gap:12px;align-items:stretch;margin-bottom:10px}
+.ribbon{background:var(--green);color:#fff;width:96px;flex:none;text-align:center;
+padding:10px 6px 14px;border-radius:0 0 14px 14px;position:relative}
+.ribbon .d{font-size:12px;letter-spacing:2px;font-weight:700}
+.ribbon .n{font-size:52px;font-weight:900;line-height:1.05}
+.ribbon .dt{font-size:11px;background:rgba(255,255,255,.15);border-radius:8px;padding:2px 4px;margin-top:4px;display:inline-block}
+.hd-mid{flex:1;padding-top:2px}
+.brand{font-size:12px;color:var(--green);font-weight:700;letter-spacing:1px}
+.title{font-size:34px;font-weight:900;color:#33301f;line-height:1.15;margin:2px 0}
+.subtitle{font-size:13px;color:var(--ink2);font-weight:700}
+.badge{display:inline-block;background:var(--coral);color:#fff;font-size:12px;font-weight:700;
+border-radius:16px;padding:3px 12px;margin-top:6px}
+.tasks{flex:none;width:230px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:8px 10px}
+.tasks h3{font-size:13px;color:var(--green);margin-bottom:4px}
+.tasks div{font-size:11.5px;font-weight:700;padding:1.5px 0}
+.cat{flex:none;width:74px;text-align:center;font-size:46px;line-height:1;padding-top:6px}
+.cat span{display:block;font-size:10.5px;font-weight:900;color:var(--coral);border:1.5px dashed var(--coral);
+border-radius:12px;padding:2px 4px;margin-bottom:6px;background:#fff}
+/* ---------- grid ---------- */
+.grid{display:grid;grid-template-columns:1.02fr 1.1fr .98fr;gap:10px}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:10px 11px;margin-bottom:10px}
+.card h3{font-size:13.5px;color:var(--green);margin-bottom:7px}
+.card h3 .paw{color:var(--orange)}
+/* timeline */
+.tl{position:relative}
+.tstep{display:flex;gap:8px;margin-bottom:9px;position:relative}
+.tstep:not(:last-child):before{content:"";position:absolute;left:10px;top:22px;bottom:-9px;border-left:2px dotted var(--green2)}
+.tnum{flex:none;width:21px;height:21px;border-radius:50%;background:var(--green);color:#fff;
+font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:1}
+.tbody{flex:1}
+.trow1{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.ttime{font-size:11px;font-weight:900;color:var(--coral)}
+.tname{font-size:12.5px;font-weight:900}
+.tdur{font-size:10px;color:var(--orange);font-weight:700;white-space:nowrap}
+.tdesc{font-size:10.5px;color:var(--ink2);line-height:1.45}
+/* picks */
+.pick{border:1.5px solid var(--line);border-radius:12px;padding:8px 9px;margin-bottom:8px;background:#fff}
+.pick:last-child{margin-bottom:0}
+.prow{display:flex;align-items:center;gap:7px}
+.ptag{flex:none;background:var(--orange);color:#fff;font-size:10px;font-weight:900;border-radius:6px;padding:2px 6px}
+.pname{font-size:13px;font-weight:900}
+.pstars{font-size:11px;color:var(--orange);margin:1px 0 3px 0;font-weight:700}
+.picon{font-size:20px;line-height:1}
+.ppt{font-size:11px;line-height:1.5}
+.ppt li{margin-left:15px}
+.ptip{margin-top:5px;background:#d8d2bd;border:1px dashed var(--orange);border-radius:8px;
+padding:3px 7px;font-size:10.5px;color:#8a5a13;font-weight:700}
+/* right column blocks */
+.story p,.know p{font-size:11.5px;line-height:1.65}
+.find div{font-size:11.5px;font-weight:700;padding:2px 0 2px 18px;text-indent:-18px}
+.photos{display:flex;gap:6px}
+.ph{flex:1;height:64px;background:#fff;border:1.5px dashed #d8cfae;border-radius:8px;position:relative}
+.ph:before{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(-2deg);
+width:34px;height:10px;background:repeating-linear-gradient(45deg,#bcd4bc,#bcd4bc 3px,#d6e6d6 3px,#d6e6d6 6px);opacity:.9;border-radius:2px}
+.say div{border-bottom:1.5px dashed #d8cfae;height:20px}
+/* hotel */
+.hotel{background:#d8d2bd;border:1.5px solid #d8cfae}
+.hotel .hname{font-size:14px;font-weight:900;color:var(--green);margin-bottom:3px}
+.hotel li{font-size:11px;margin-left:15px;line-height:1.55}
+/* reminders */
+.remind li{font-size:11px;margin-left:15px;line-height:1.6}
+.remind{background:#d8d2bd;border-color:#d8cfae}
+.remind h3{color:#8a5a13}
+/* footer */
+
+/* free-draw zone */
+.freezone{flex:1;min-height:160px;margin-top:2px;background:var(--paper);
+border:2.5px dashed #d8cfae;border-radius:16px;padding:10px 14px;position:relative;overflow:hidden}
+.fz-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.freezone h3{font-size:14px;color:var(--green)}
+.fz-sub{font-size:11px;color:var(--ink2);font-weight:700}
+.fz-flake{position:absolute;opacity:.35;font-size:15px}
+.f1{top:12px;right:118px}.f2{bottom:14px;left:14px}
+.fz-peng{position:absolute;right:12px;bottom:6px;width:72px;opacity:.9}
+.fz-peng svg{width:100%;height:auto}
+.cat .peng{width:70px;height:auto}
+
+/* equal-height columns: middle band is one solid block */
+.grid>div{display:flex;flex-direction:column}
+.grid>div>.card{margin-bottom:10px;flex:0 0 auto}
+.grid>div>.card:last-child{flex:1 0 auto;margin-bottom:0}
+.freezone{margin-top:10px}
+.mama{background:#d8d2bd;border-color:#d8cfae}
+.mama li{font-size:11px;margin-left:15px;line-height:1.62}
+.cat{width:86px;font-size:44px;text-align:center;line-height:1.15}
+.cat .peng{width:112px;height:auto}
+
+.cat .logo{width:118px;height:auto}
+
+.nature{background:#F9F7F7}
+.nature li{font-size:11px;margin-left:15px;line-height:1.62}
+
+.bigclass li{font-size:11.5px;margin-left:15px;line-height:1.7;padding:1px 0}
+.foot{position:absolute;left:0;right:0;bottom:0;background:var(--green);color:#fff;
+text-align:center;font-size:12px;font-weight:900;padding:7px;letter-spacing:1px}
+</style></head><body>
+<div class="page">
+  <div class="hd">
+    <div class="ribbon"><div class="d">DAY 5</div><div class="n">5</div><div class="dt">2026/7/26（日）</div></div>
+    <div class="hd-mid">
+      <div class="brand">🐾 貓咪探險隊 CAT EXPEDITION TEAM</div>
+      <div class="title">採櫻桃 → 阿寒湖 森林夜行 🐾</div>
+      <div class="subtitle">果園吃到飽、看花栗鼠，晚上走進會說故事的魔法森林！</div>
+      <div class="badge">今晚要幫小鳥打節奏！　🐾</div>
+    </div>
+    <div class="tasks"><h3>❄️ 今天的任務</h3><div>☑ （應該會）去流冰館摸 -15 度</div><div>☑ 在よこやま果樹園採櫻桃</div><div>☑ 跟花栗鼠打招呼</div><div>☑ 晚上進森林幫橿鳥打節奏！</div></div>
+    <div class="cat"><span>探險出發！</span>🐱🎒</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 我們今天的路線</h3><div class="tl"><div class="tstep"><div class="tnum">1</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">上午</span> 鄂霍次克流冰館（應該會去）</span><span class="tdur">60分</span></div>
+<div class="tdesc">夏天摸流冰、看海天使，體感 -15 度！</div></div></div><div class="tstep"><div class="tnum">2</div><div class="tbody">
+<div class="trow1"><span class="tname">よこやま果樹園・採櫻桃！🍒</span><span class="tdur">60分</span></div>
+<div class="tdesc">現採現吃！入園後園裡當季水果吃到飽</div></div></div><div class="tstep"><div class="tnum">3</div><div class="tbody">
+<div class="trow1"><span class="tname">花栗鼠公園 🐿</span><span class="tdur">45分</span></div>
+<div class="tdesc">小小的花栗鼠在腳邊跑來跑去</div></div></div><div class="tstep"><div class="tnum">4</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">下午</span> 開車前往阿寒湖</span><span class="tdur">約2小時</span></div>
+<div class="tdesc">進入大森林和火山湖的世界</div></div></div><div class="tstep"><div class="tnum">5</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">傍晚</span> 入住 鶴雅 阿寒湖</span><span class="tdur">🏨</span></div>
+<div class="tdesc">湖邊的溫泉飯店，吃晚餐儲存體力</div></div></div><div class="tstep"><div class="tnum">6</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">19:30</span> KAMUY LUMINA 森林夜行！</span><span class="tdur">50分</span></div>
+<div class="tdesc">拿著節奏權杖走 1.2 公里的發光森林，約 50 分鐘</div></div></div></div></div>
+      <div class="card remind"><h3>⚠️ 小提醒</h3><ul class="remind"><li>森林步道高低不平，穿好走的鞋</li><li>下雨照常舉辦，但不能撐傘，要穿雨衣</li><li>森林裡不奔跑、牽好小小孩的手</li><li>果園裡輕輕摘，綠綠的還沒熟不要摘</li><li>-15 度房間要穿外套（可以借）</li></ul></div>
+    </div>
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 隊長推薦（今天的亮點！）</h3><div class="pick"><div class="prow"><span class="picon">✨</span><span class="ptag">夜晚</span><span class="pname">KAMUY LUMINA</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>每人拿一支會發光的「節奏權杖」</li><li>森林會用光和音樂說愛奴族的故事</li><li>跟著節奏敲，幫故事裡的小鳥完成任務！</li><li>學齡前小朋友免費入場</li></ul><div class="ptip">💡 入口那隻貓頭鷹在等我們喔！</div></div><div class="pick"><div class="prow"><span class="picon">🍒</span><span class="ptag">上午</span><span class="pname">よこやま果樹園</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>樹上現採現吃，最新鮮！</li><li>入園費就能吃到飽，幼兒免費</li><li>紅通通的櫻桃最甜</li></ul><div class="ptip">💡 輕輕摘，還沒紅的留給太陽曬</div></div><div class="pick"><div class="prow"><span class="picon">❄️</span><span class="ptag">上午</span><span class="pname">流冰館 -15°C 體驗</span></div>
+<div class="pstars">推薦度 ★★★★☆</div><ul class="ppt"><li>夏天穿外套進冰的房間！</li><li>甩濕毛巾會變硬梆梆</li><li>找找透明小天使「海天使」</li></ul><div class="ptip">💡 館內有外套可以借</div></div></div>
+      <div class="card hotel"><h3>🛏 今天晚上住這裡！</h3><div class="hname">鶴雅 阿寒湖</div><ul><li>湖邊的溫泉大飯店</li><li>晚餐豐盛，溫泉暖呼呼</li></ul></div>
+    </div>
+    <div>
+      <div class="card story"><h3>🔍 小小探險家百科</h3><p><b>🌏 探險故事：</b>今晚的森林要說一個愛奴族的故事：很久以前，人們忘記感謝動物，惹 KAMUY（神）生氣了，神就不再把鹿和魚送到森林裡，大家都餓肚子。村落的守護神貓頭鷹決定給人類一次機會，派歌聲最美的小鳥「橿鳥」去神的世界傳話——可是橿鳥老是跟不上節奏！所以要靠我們用節奏權杖一起敲，幫牠把訊息送到，讓鹿和魚回到阿寒湖的森林。</p></div>
+      <div class="card mama"><h3>🐧 貓咪隊長小教室</h3><ul class="bigclass"><li>KAMUY（卡姆伊）是愛奴語「神」的意思，愛奴族相信森林裡的萬物都住著神</li><li>貓頭鷹是愛奴族的「村落守護神」，牠的羽毛軟軟的，飛起來完全沒有聲音</li><li>橿鳥的歌聲是森林裡最美的，可是節奏很差——所以需要我們幫忙打拍子！</li><li>海天使其實是一種沒有殼的小貝類，透明的身體拍呀拍，像在冰海裡飛</li><li>花栗鼠的臉頰袋可以裝下比牠的頭還多的食物，鼓鼓的超可愛</li><li>櫻桃越紅越甜，樹上現採的最好吃，因為太陽幫它加了糖</li></ul></div>
+      <div class="card find"><h3>🔭 今天一起找找看！</h3><div>☐ 入口的貓頭鷹守護神找到了嗎？</div><div>☐ 逃跑的鹿有沒有留下來？</div><div>☐ 大家的節奏有沒有對齊？</div><div>☐ 誰採到最紅的櫻桃？</div><div>☐ 花栗鼠的臉頰裝了什麼？</div></div>
+    </div>
+  </div>
+  <div class="freezone">
+    <div class="fz-head"><h3>🐧 小貓咪的自由創作區</h3><span class="fz-sub">今天的照片、今天說了什麼、畫畫塗鴉……想放什麼都可以！</span></div>
+    <span class="fz-flake f1">🐾</span><span class="fz-flake f2">🐾</span>
+  </div>
+  <div class="foot">🐾　貓咪探險隊守則：照顧自己，保護彼此，一起享受每一次的冒險！　🐾</div>
+</div></body></html>

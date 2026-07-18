@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 3｜五湖健行 ＆ 出海賞鯨</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap');
+:root{
+  --green:#4c5f3d; --green2:#6b7d52; --cream:#f4efdf; --paper:#fffdf4;
+  --orange:#e08a3c; --coral:#d96c4f; --sky:#7da7c4; --brown:#8a6d4b;
+  --ink:#3d3a30; --ink2:#6f6a5a; --line:#e3dcc4; --pink:#e8a7a0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#d8d2bd;font-family:'Zen Maru Gothic','Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--ink);
+display:flex;justify-content:center;padding:20px}
+.page{width:794px;min-height:1123px;background:var(--cream);position:relative;display:flex;flex-direction:column;
+padding:14px 16px 46px;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+@media print{
+  body{background:none;padding:0}
+  .page{box-shadow:none;width:210mm;min-height:297mm}
+  @page{size:A4 portrait;margin:0}
+}
+/* ---------- header ---------- */
+.hd{display:flex;gap:12px;align-items:stretch;margin-bottom:10px}
+.ribbon{background:var(--green);color:#fff;width:96px;flex:none;text-align:center;
+padding:10px 6px 14px;border-radius:0 0 14px 14px;position:relative}
+.ribbon .d{font-size:12px;letter-spacing:2px;font-weight:700}
+.ribbon .n{font-size:52px;font-weight:900;line-height:1.05}
+.ribbon .dt{font-size:11px;background:rgba(255,255,255,.15);border-radius:8px;padding:2px 4px;margin-top:4px;display:inline-block}
+.hd-mid{flex:1;padding-top:2px}
+.brand{font-size:12px;color:var(--green);font-weight:700;letter-spacing:1px}
+.title{font-size:34px;font-weight:900;color:#33301f;line-height:1.15;margin:2px 0}
+.subtitle{font-size:13px;color:var(--ink2);font-weight:700}
+.badge{display:inline-block;background:var(--coral);color:#fff;font-size:12px;font-weight:700;
+border-radius:16px;padding:3px 12px;margin-top:6px}
+.tasks{flex:none;width:230px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:8px 10px}
+.tasks h3{font-size:13px;color:var(--green);margin-bottom:4px}
+.tasks div{font-size:11.5px;font-weight:700;padding:1.5px 0}
+.cat{flex:none;width:74px;text-align:center;font-size:46px;line-height:1;padding-top:6px}
+.cat span{display:block;font-size:10.5px;font-weight:900;color:var(--coral);border:1.5px dashed var(--coral);
+border-radius:12px;padding:2px 4px;margin-bottom:6px;background:#fff}
+/* ---------- grid ---------- */
+.grid{display:grid;grid-template-columns:1.02fr 1.1fr .98fr;gap:10px}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:10px 11px;margin-bottom:10px}
+.card h3{font-size:13.5px;color:var(--green);margin-bottom:7px}
+.card h3 .paw{color:var(--orange)}
+/* timeline */
+.tl{position:relative}
+.tstep{display:flex;gap:8px;margin-bottom:9px;position:relative}
+.tstep:not(:last-child):before{content:"";position:absolute;left:10px;top:22px;bottom:-9px;border-left:2px dotted var(--green2)}
+.tnum{flex:none;width:21px;height:21px;border-radius:50%;background:var(--green);color:#fff;
+font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:1}
+.tbody{flex:1}
+.trow1{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.ttime{font-size:11px;font-weight:900;color:var(--coral)}
+.tname{font-size:12.5px;font-weight:900}
+.tdur{font-size:10px;color:var(--orange);font-weight:700;white-space:nowrap}
+.tdesc{font-size:10.5px;color:var(--ink2);line-height:1.45}
+/* picks */
+.pick{border:1.5px solid var(--line);border-radius:12px;padding:8px 9px;margin-bottom:8px;background:#fff}
+.pick:last-child{margin-bottom:0}
+.prow{display:flex;align-items:center;gap:7px}
+.ptag{flex:none;background:var(--orange);color:#fff;font-size:10px;font-weight:900;border-radius:6px;padding:2px 6px}
+.pname{font-size:13px;font-weight:900}
+.pstars{font-size:11px;color:var(--orange);margin:1px 0 3px 0;font-weight:700}
+.picon{font-size:20px;line-height:1}
+.ppt{font-size:11px;line-height:1.5}
+.ppt li{margin-left:15px}
+.ptip{margin-top:5px;background:#d8d2bd;border:1px dashed var(--orange);border-radius:8px;
+padding:3px 7px;font-size:10.5px;color:#8a5a13;font-weight:700}
+/* right column blocks */
+.story p,.know p{font-size:11.5px;line-height:1.65}
+.find div{font-size:11.5px;font-weight:700;padding:2px 0 2px 18px;text-indent:-18px}
+.photos{display:flex;gap:6px}
+.ph{flex:1;height:64px;background:#fff;border:1.5px dashed #d8cfae;border-radius:8px;position:relative}
+.ph:before{content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(-2deg);
+width:34px;height:10px;background:repeating-linear-gradient(45deg,#bcd4bc,#bcd4bc 3px,#d6e6d6 3px,#d6e6d6 6px);opacity:.9;border-radius:2px}
+.say div{border-bottom:1.5px dashed #d8cfae;height:20px}
+/* hotel */
+.hotel{background:#d8d2bd;border:1.5px solid #d8cfae}
+.hotel .hname{font-size:14px;font-weight:900;color:var(--green);margin-bottom:3px}
+.hotel li{font-size:11px;margin-left:15px;line-height:1.55}
+/* reminders */
+.remind li{font-size:11px;margin-left:15px;line-height:1.6}
+.remind{background:#d8d2bd;border-color:#d8cfae}
+.remind h3{color:#8a5a13}
+/* footer */
+
+/* free-draw zone */
+.freezone{flex:1;min-height:160px;margin-top:2px;background:var(--paper);
+border:2.5px dashed #d8cfae;border-radius:16px;padding:10px 14px;position:relative;overflow:hidden}
+.fz-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.freezone h3{font-size:14px;color:var(--green)}
+.fz-sub{font-size:11px;color:var(--ink2);font-weight:700}
+.fz-flake{position:absolute;opacity:.35;font-size:15px}
+.f1{top:12px;right:118px}.f2{bottom:14px;left:14px}
+.fz-peng{position:absolute;right:12px;bottom:6px;width:72px;opacity:.9}
+.fz-peng svg{width:100%;height:auto}
+.cat .peng{width:70px;height:auto}
+
+/* equal-height columns: middle band is one solid block */
+.grid>div{display:flex;flex-direction:column}
+.grid>div>.card{margin-bottom:10px;flex:0 0 auto}
+.grid>div>.card:last-child{flex:1 0 auto;margin-bottom:0}
+.freezone{margin-top:10px}
+.mama{background:#d8d2bd;border-color:#d8cfae}
+.mama li{font-size:11px;margin-left:15px;line-height:1.62}
+.cat{width:86px;font-size:44px;text-align:center;line-height:1.15}
+.cat .peng{width:112px;height:auto}
+
+.cat .logo{width:118px;height:auto}
+
+.nature{background:#F9F7F7}
+.nature li{font-size:11px;margin-left:15px;line-height:1.62}
+
+.bigclass li{font-size:11.5px;margin-left:15px;line-height:1.7;padding:1px 0}
+.foot{position:absolute;left:0;right:0;bottom:0;background:var(--green);color:#fff;
+text-align:center;font-size:12px;font-weight:900;padding:7px;letter-spacing:1px}
+</style></head><body>
+<div class="page">
+  <div class="hd">
+    <div class="ribbon"><div class="d">DAY 3</div><div class="n">3</div><div class="dt">2026/7/24（五）</div></div>
+    <div class="hd-mid">
+      <div class="brand">🐾 貓咪探險隊 CAT EXPEDITION TEAM</div>
+      <div class="title">五湖健行 ＆ 出海賞鯨 🐾</div>
+      <div class="subtitle">早上走進原始森林找湖，下午出海找大鯨魚！</div>
+      <div class="badge">今天是超級探險日！　🐾</div>
+    </div>
+    <div class="tasks"><h3>❄️ 今天的任務</h3><div>☑ 上完「熊熊安全課」</div><div>☑ 走五湖小圈步道</div><div>☑ 吃海鮮午餐</div><div>☑ 搭大船找鯨魚</div><div>☑ 看雙美瀑布</div></div>
+    <div class="cat"><span>探險出發！</span>🐱🎒</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 我們今天的路線</h3><div class="tl"><div class="tstep"><div class="tnum">1</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">8:50</span> 知床五湖・小圈健行</span><span class="tdur">約1.5小時</span></div>
+<div class="tdesc">Gen 嚮導帶隊！先上 15 分鐘熊熊安全課，再出發</div></div></div><div class="tstep"><div class="tnum">2</div><div class="tbody">
+<div class="trow1"><span class="tname">高架木道＋森林步道</span><span class="tdur">🌲</span></div>
+<div class="tdesc">木頭步道看湖和知床連山，再走進原始森林</div></div></div><div class="tstep"><div class="tnum">3</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">中午</span> 港邊海鮮午餐</span><span class="tdur">60分</span></div>
+<div class="tdesc">羅臼的海鮮超新鮮，吃飽準備出海</div></div></div><div class="tstep"><div class="tnum">4</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">13:00</span> 知床 Nature Cruise 賞鯨船！</span><span class="tdur">約2.5小時</span></div>
+<div class="tdesc">開進根室海峽：左邊知床半島、右邊國後島</div></div></div><div class="tstep"><div class="tnum">5</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">下午</span> 岸邊釣魚（看情況）</span><span class="tdur">待定</span></div>
+<div class="tdesc">體力還夠的話，在羅臼岸邊釣釣看</div></div></div><div class="tstep"><div class="tnum">6</div><div class="tbody">
+<div class="trow1"><span class="tname"><span class="ttime">傍晚</span> 雙美瀑布 Oshinkoshin</span><span class="tdur">15分</span></div>
+<div class="tdesc">回程順路看，分成兩條流下來的大瀑布</div></div></div><div class="tstep"><div class="tnum">7</div><div class="tbody">
+<div class="trow1"><span class="tname">回 KIKI 泡湯休息</span><span class="tdur">♨️</span></div>
+<div class="tdesc">走了好多路，泡湯最舒服！</div></div></div></div></div>
+      <div class="card remind"><h3>⚠️ 小提醒</h3><ul class="remind"><li>步道和船上都沒有廁所，出發前先去！</li><li>長袖長褲＋運動鞋（防蟲防刮傷），戴帽子</li><li>雨衣帶著，晴天也要帶（山上天氣多變）</li><li>海上比陸地冷很多，外套一定要！</li><li>有熊出沒時嚮導可能改路線，聽嚮導的話</li><li>動物們都住在大自然裡，不一定會遇到——看到是超幸運，沒看到也是很棒的探險！</li></ul></div>
+    </div>
+    <div>
+      <div class="card"><h3><span class="paw">🐾</span> 隊長推薦（今天的亮點！）</h3><div class="pick"><div class="prow"><span class="picon">🐋</span><span class="ptag">海上</span><span class="pname">知床 Nature Cruise 賞鯨</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>7 月是抹香鯨的最佳季節！</li><li>幸運的話還會遇到黑白色的虎鯨</li><li>小海豚常常在船邊衝浪比賽</li></ul><div class="ptip">💡 看到「噗——」的水柱就是鯨魚在呼吸！</div></div><div class="pick"><div class="prow"><span class="picon">🌲</span><span class="ptag">森林</span><span class="pname">五湖小圈健行</span></div>
+<div class="pstars">推薦度 ★★★★★</div><ul class="ppt"><li>高架木道：湖面像鏡子，山會倒過來</li><li>地面步道：走進大樹爺爺的原始森林</li><li>路上找動物的腳印和啃過的樹</li></ul><div class="ptip">💡 跟緊 Gen 嚮導，腳步輕輕的</div></div><div class="pick"><div class="prow"><span class="picon">🍣</span><span class="ptag">午餐</span><span class="pname">港邊海鮮丼</span></div>
+<div class="pstars">推薦度 ★★★★☆</div><ul class="ppt"><li>羅臼昆布和海膽超有名</li><li>不敢吃生的也有熟的可以選</li></ul></div></div>
+      <div class="card hotel"><h3>🛏 今天晚上住這裡！</h3><div class="hname">KIKI 知床 Natural Resort（第 2 晚・最後一晚）</div><ul><li>回到熟悉的房間，不用搬行李</li><li>明天早上要跟 KIKI 說掰掰囉</li></ul></div>
+    </div>
+    <div>
+      <div class="card story"><h3>🔍 小小探險家百科</h3><p><b>🌏 探險故事：</b>羅臼的海是「鯨魚的大餐廳」！冬天的流冰會送來滿滿的浮游生物當開胃菜，小魚游來吃浮游生物，鯨魚和海豚再游來吃小魚——一場大自然的接力賽，所以這裡才有這麼多鯨魚。這也是知床變成世界自然遺產的祕密！</p></div>
+      <div class="card mama"><h3>🐧 貓咪隊長小教室</h3><ul class="bigclass"><li>鯨魚不是魚！牠跟我們一樣用肺呼吸，「噗——」噴出高高的水柱，就是牠浮上來換氣</li><li>抹香鯨是潛水冠軍，可以憋氣潛到深海超過 1 小時找大烏賊吃</li><li>虎鯨是海豚家族裡最大的成員，黑白色的像穿燕尾服</li><li>小海豚（鼠海豚）游超快，最喜歡在船頭的浪裡衝浪</li><li>水薙鳥會幾千隻一起飛過海面，像一朵會動的黑色雲</li><li>走五湖之前要先上「熊熊安全課」，學會在森林裡當個有禮貌的客人</li></ul></div>
+      <div class="card find"><h3>🔭 今天一起找找看！</h3><div>☐ 鯨魚的尾巴翹起來了嗎？</div><div>☐ 海豚有沒有來船邊衝浪？</div><div>☐ 湖面上有沒有山的倒影？</div><div>☐ 森林裡找到動物的腳印嗎？</div><div>☐ 瀑布旁邊有沒有小彩虹？</div></div>
+    </div>
+  </div>
+  <div class="freezone">
+    <div class="fz-head"><h3>🐧 小貓咪的自由創作區</h3><span class="fz-sub">今天的照片、今天說了什麼、畫畫塗鴉……想放什麼都可以！</span></div>
+    <span class="fz-flake f1">🐾</span><span class="fz-flake f2">🐾</span>
+  </div>
+  <div class="foot">🐾　貓咪探險隊守則：照顧自己，保護彼此，一起享受每一次的冒險！　🐾</div>
+</div></body></html>
